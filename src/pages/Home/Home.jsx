@@ -7,7 +7,7 @@ const Home = () => {
     <>
         <div> Home </div>
         <button onClick={() => {navigate("/about");}}>
-            About Us
+            About Uss
         </button>
     </>
   )
