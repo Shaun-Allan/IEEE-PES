@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Header.css */
+.active {
+    font-weight: bold;
+  }
+  
