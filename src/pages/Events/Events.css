@@ -10,10 +10,10 @@
   justify-content: flex-start;
   overflow-x: auto;
   padding: 10px;
-  gap: 10px; /* Adjust space between cards */
+  gap: 10px; 
 }
 
 .card-container {
-  flex: 0 0 auto; /* Prevent cards from shrinking or growing */
-  width: 400px; /* Adjust width as needed */
+  flex: 0 0 auto;
+  width: 400px; 
 }

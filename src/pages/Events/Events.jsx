@@ -1,28 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import './Events.css';
-import { db } from '../../FirebaseConfig';
-import { collection, getDocs } from 'firebase/firestore';
 import EventCard from '../../components/Events/EventCard';
+import { fetchEvents } from '../../utils/DatabaseServices/Database'; 
 
 const Events = () => {
   const [events, setEvents] = useState([]);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchEvents = async () => {
+    const loadEvents = async () => {
       try {
-        const eventsCollection = collection(db, 'events');
-        const eventSnapshot = await getDocs(eventsCollection);
-        const eventsList = await Promise.all(
-          eventSnapshot.docs.map(async (doc) => {
-            const eventData = doc.data();
-            const imagesCollection = collection(doc.ref, 'images');
-            const imagesSnapshot = await getDocs(imagesCollection);
-            const images = imagesSnapshot.docs.map(imgDoc => imgDoc.data());
-            return { id: doc.id, ...eventData, images };
-          })
-        );
-        console.log('Fetched events:', eventsList);
+        const eventsList = await fetchEvents();
         setEvents(eventsList);
       } catch (err) {
         console.error('Error fetching events:', err);
@@ -30,7 +18,7 @@ const Events = () => {
       }
     };
 
-    fetchEvents();
+    loadEvents();
   }, []);
 
   if (error) return <div>{error}</div>;

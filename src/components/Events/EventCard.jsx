@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Card, CardHeader, CardBody, Image } from "@nextui-org/react";
-import "./EventCard.css"; // Import CSS for EventCard component
+import "./EventCard.css"; 
 
 export default function EventCard({ event }) {
   const [currentSlide, setCurrentSlide] = useState(0);
