@@ -7,13 +7,13 @@ export default function EventCard({ event }) {
   const [showDescription, setShowDescription] = useState(false);
 
   const nextSlide = (e) => {
-    e.stopPropagation(); // Prevent click from toggling description
+    e.stopPropagation();
     const nextIndex = (currentSlide + 1) % event.images.length;
     setCurrentSlide(nextIndex);
   };
 
   const prevSlide = (e) => {
-    e.stopPropagation(); // Prevent click from toggling description
+    e.stopPropagation();
     const prevIndex =
       (currentSlide - 1 + event.images.length) % event.images.length;
     setCurrentSlide(prevIndex);
