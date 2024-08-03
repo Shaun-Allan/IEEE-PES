@@ -72,4 +72,8 @@ body::-webkit-scrollbar {
     width: 110%;
     margin-bottom: 20px;
   }
+
+  .card-container:hover {
+    transform: scale(1);
+  }
 }

@@ -4,22 +4,29 @@ import "./EventCard.css";
 
 export default function EventCard({ event }) {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [showDescription, setShowDescription] = useState(false);
 
-  const nextSlide = () => {
+  const nextSlide = (e) => {
+    e.stopPropagation(); // Prevent click from toggling description
     const nextIndex = (currentSlide + 1) % event.images.length;
     setCurrentSlide(nextIndex);
   };
 
-  const prevSlide = () => {
+  const prevSlide = (e) => {
+    e.stopPropagation(); // Prevent click from toggling description
     const prevIndex =
       (currentSlide - 1 + event.images.length) % event.images.length;
     setCurrentSlide(prevIndex);
   };
 
+  const toggleDescription = () => {
+    setShowDescription(!showDescription);
+  };
+
   return (
     <Card className="event-card">
       <CardBody className="p-0 relative overflow-hidden">
-        <div className="slider-container">
+        <div className="slider-container" onClick={toggleDescription}>
           <div className="image-container">
             {event.images.length > 1 && (
               <>
@@ -44,11 +51,13 @@ export default function EventCard({ event }) {
               ))}
             </div>
           </div>
-          {currentSlide === 0 ? <div className="description-container">
-            <h4 className="event-title">{event.name}</h4>
-            <p className="event-description">{event.description}</p>
-            <p className="event-date">{event.date}</p>
-          </div> : null}
+          {showDescription && (
+            <div className="description-container">
+              <h4 className="event-title">{event.name}</h4>
+              <p className="event-description">{event.description}</p>
+              <p className="event-date">{event.date}</p>
+            </div>
+          )}
         </div>
       </CardBody>
     </Card>
