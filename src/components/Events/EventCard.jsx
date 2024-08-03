@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Card, CardHeader, CardBody, Image } from "@nextui-org/react";
+import { Card, CardBody, Image } from "@nextui-org/react";
 import "./EventCard.css";
 
 export default function EventCard({ event }) {
@@ -20,24 +20,35 @@ export default function EventCard({ event }) {
     <Card className="event-card">
       <CardBody className="p-0 relative overflow-hidden">
         <div className="slider-container">
-          <h4 className="font-bold text-large">{event.name}</h4>
-          <button className="prev" onClick={prevSlide}>
-            &#10094;
-          </button>
-          <div className="slides">
-            {event.images.map((image, idx) => (
-              idx === currentSlide ? (
-                <Image
-                  alt={`Event ${event.name} Image ${idx + 1}`}
-                  className="object-cover"
-                  src={image.url}
-                />
-              ) : null
-            ))}
+          <div className="image-container">
+            {event.images.length > 1 && (
+              <>
+                <button className="prev" onClick={prevSlide}>
+                  &#10094;
+                </button>
+                <button className="next" onClick={nextSlide}>
+                  &#10095;
+                </button>
+              </>
+            )}
+            <div className="slides">
+              {event.images.map((image, idx) => (
+                idx === currentSlide && (
+                  <Image
+                    key={idx}
+                    alt={`Event ${event.name} Image ${idx + 1}`}
+                    className="object-cover"
+                    src={image.url}
+                  />
+                )
+              ))}
+            </div>
           </div>
-          <button className="next" onClick={nextSlide}>
-            &#10095;
-          </button>
+          <div className="description-container">
+            <h4 className="event-title">{event.name}</h4>
+            <p className="event-description">{event.description}</p>
+            <p className="event-date">{event.date}</p>
+          </div>
         </div>
       </CardBody>
     </Card>
