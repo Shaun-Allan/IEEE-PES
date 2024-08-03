@@ -1,3 +1,339 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+html, body {
+  overflow: hidden;
+}
+
+.parallax-container {
+  overflow: hidden;
+}
+
+.background {
+  position: relative;
+  background-image: url('../../assets/homebg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 110vh;
+}
+
+.background::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.7);
+  z-index: 1;
+}
+
+.background > * {
+  position: relative;
+  z-index: 2;
+}
+
+.valley-image {
+  width: 100%;
+  max-height: 25vh;
+  position: absolute;
+  bottom: 0;
+  z-index: 3;
+}
+
+.valley-layer-image {
+  width: 100%;
+  max-height: 25vh;
+  position: absolute;
+  bottom: 0;
+  z-index: 4;
+}
+
+.title-layer {
+  position: relative;
+  z-index: 5;
+}
+
+.about-section {
+  background-color: #386c5f;
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.swiper_container {
+  overflow: visible;
+  height: auto;/* Hide overflow to prevent cut-off */
+}
+
+.swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: auto; /* Allow slides to resize automatically */
+  height: 100%; /* Full height of the container */
+}
+
+.swiper-slide img {
+  width: 100%; /* Ensure the image fits within the slide */
+  height: auto; /* Maintain aspect ratio */
+  margin-left: 10px;
+  scale: 160%;
+}
+
+
+
+.swiper-slide-shadow-left,
+.swiper-slide-shadow-right {
+  display: none;
+}
+
+.slider-controller {
+  position: relative;
+  bottom: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slider-controller .swiper-button-next {
+  left: 58% !important;
+  transform: translateX(-58%) !important;
+}
+
+/* @media (max-width: 990px) {
+  .slider-controller .swiper-button-next {
+    left: 70% !important;
+    transform: translateX(-70%) !important;
+  }
+}
+
+@media (max-width: 450px) {
+  .slider-controller .swiper-button-next {
+    left: 80% !important;
+    transform: translateX(-80%) !important;
+  }
+}
+
+@media (max-width: 990px) {
+  .slider-controller .swiper-button-prev {
+    left: 40% !important;
+    transform: translateX(-40%) !important;
+  }
+}
+
+@media (max-width: 450px) {
+  .slider-controller .swiper-button-prev {
+    left: 20% !important;
+    transform: translateX(-20%) !important;
+  }
+} */
+
+.slider-controller .swiper-button-prev,
+.slider-controller .swiper-button-next {
+  background: var(--white);
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  filter: drop-shadow(0px 8px 24px rgba(18, 28, 53, 0.1));
+}
+
+.swiper-button-prev ,
+.swiper-button-next{
+  size: 20px;
+}
+
+
+/* Center the pagination bullets horizontally */
+.swiper-pagination {
+  position: absolute;
+  height: 10px;
+  padding-top: 10px;
+  transform: translateY(20px);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* Style the pagination bullets */
+.swiper-pagination .swiper-pagination-bullet {
+  width: 1rem; /* Adjust the size as needed */
+  height: 1rem; /* Adjust the size as needed */
+  background: rgba(255, 255, 255, 0.5); /* Semi-transparent background */
+  opacity: 0.7; /* Adjust opacity for better visibility */
+  transition: background 0.3s, opacity 0.3s;
+}
+
+/* Style the active bullet */
+.swiper-pagination .swiper-pagination-bullet-active {
+  background: rgba(255, 255, 255, 0.9); /* More opaque for active state */
+  opacity: 1; /* Fully opaque for active bullet */
+}
+
+
+
+.about-section {
+  background-color: #386c5f;
+  position: relative;
+  min-height: 100vh; /* Ensures it takes up the full viewport height */
+  display: flex;
+  align-items: center; /* Vertically center items */
+  justify-content: center; /* Horizontally center items */
+  color: white;
+  padding: 0 1rem; /* Adjust if needed */
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: row; /* Align items in a row */
+  width: 100%;
+  max-width: 7xl; /* Adjust according to your design */
+  gap: 2rem; /* Space between the text and swiper */
+}
+
+.flex-1 {
+  flex: 1; /* Allow elements to take up available space */
+}
+
+.swiper_container {
+  height: 60rem; /* Adjust height to be slightly larger */
+  padding: 2rem 0;
+  position: relative;
+}
+
+.swiper-slide {
+  width: 37rem;
+  height: 42rem;
+  position: relative;
+}
+
+.swiper-slide img {
+  width: 342px;
+  height: 222px;
+  border-radius: 2rem;
+  object-fit: cover;
+}
+
+
+.amp-text{
+  opacity: 0;
+  transition: 500ms;
+  transform: translateY(-30px);
+}
+
+.amp-text.show{
+  opacity: 100;
+  transform: translateY(0);
+}
+
+.amp-text-down{
+  opacity: 0;
+  transition: 500ms;
+  transform: translateY(30px);
+}
+
+.amp-text-down.show{
+  opacity: 100;
+  transform: translateY(0);
+}
+
+
+
+.content-section{
+  opacity: 0;
+  transition: 500ms;
+  transform: translateY(30px);
+}
+
+.content-section.show{
+  opacity: 100;
+  transform: translateY(0);
+}
+
+
+
+.power-text{
+  margin-top: 50px;
+  opacity: 0;
+  transition: 500ms;
+  transform: translateY(-60px);
+}
+
+.power-text.show{
+  opacity: 100;
+  transform: translateY(0);
+}
+
+
+.new-section {
+  background-color: #414F38;
+  color: white;
+}
+
+.blend-section {
+  height: 100vh; /* Ensure the blend section covers the viewport height */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+.blend-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, #414F38, #386c5f);
+  opacity: 0.5;
+  z-index: 2;
+}
+
+
+.content-section {
+  display: flex; /* Use flexbox layout */
+  align-items: center; /* Center items vertically */
+  padding-left: 60px;
+  padding-right: 60px;
+}
+
+
+.animated-butto {
+  background-color: #3175b1; /* Default background color */
+  color: white; /* Text color */
+  border: none;
+  padding: 10px 20px;
+  font-size: 20px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: background-color 0.3s; /* Smooth color transition on hover */
+  z-index: 10;
+}
+
+.animated-butto::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -200%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0) 100%);
+  transform: skewX(-25deg);
+  animation: glaze 2s linear infinite;
+}
+@keyframes glaze {
+  0% {
+    left: -200%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+.animated-butto:hover {
+  background-color: #5ea13c; /* Change color on hover */
+}

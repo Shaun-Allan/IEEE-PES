@@ -1,0 +1,32 @@
+.vertical-line-container {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center align the line */
+    flex-shrink: 0; /* Prevent shrinking */
+    height: 100%; /* Full height of the container */
+  }
+  
+  .vertical-line {
+    position: relative;
+    width: 3px; /* Adjust for vertical line width */
+    background-color: rgba(0, 0, 0, 0.2); /* Hide default background */
+    overflow: hidden;
+  }
+  
+  .vertical-electricity {
+    position: absolute;
+    width: 3px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, yellow, transparent);
+    animation: vertical-electricity 1s linear infinite;
+  }
+  
+  @keyframes vertical-electricity {
+    from {
+      transform: translateY(-100%);
+    }
+    to {
+      transform: translateY(100%);
+    }
+  }
+  

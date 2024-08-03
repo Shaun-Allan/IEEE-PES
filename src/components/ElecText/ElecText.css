@@ -1,0 +1,31 @@
+@keyframes electric-glow {
+    0%, 100% {
+      text-shadow: 
+        0 0 5px #ff00ff, 
+        0 0 10px #ff00ff, 
+        0 0 15px #ff00ff, 
+        0 0 20px #ff00ff, 
+        0 0 25px #ff00ff, 
+        0 0 30px #ff00ff, 
+        0 0 35px #ff00ff;
+      color: #fff;
+    }
+    50% {
+      text-shadow: 
+        0 0 5px #00ffff, 
+        0 0 10px #00ffff, 
+        0 0 15px #00ffff, 
+        0 0 20px #00ffff, 
+        0 0 25px #00ffff, 
+        0 0 30px #00ffff, 
+        0 0 35px #00ffff;
+      color: #fff;
+    }
+  }
+  
+  .electric-text {
+    font-size: 2rem; /* Adjust the font size as needed */
+    font-weight: bold;
+    animation: electric-glow 1.5s infinite alternate;
+  }
+  
