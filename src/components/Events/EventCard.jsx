@@ -44,11 +44,11 @@ export default function EventCard({ event }) {
               ))}
             </div>
           </div>
-          <div className="description-container">
+          {currentSlide === 0 ? <div className="description-container">
             <h4 className="event-title">{event.name}</h4>
             <p className="event-description">{event.description}</p>
             <p className="event-date">{event.date}</p>
-          </div>
+          </div> : null}
         </div>
       </CardBody>
     </Card>

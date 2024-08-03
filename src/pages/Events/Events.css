@@ -65,11 +65,11 @@ body::-webkit-scrollbar {
   .cards-container {
     flex-direction: column;
     align-items: center;
-    padding: 0;
+    padding-top: 20px;
   }
 
   .card-container {
-    width: 80%;
+    width: 110%;
     margin-bottom: 20px;
   }
 }
