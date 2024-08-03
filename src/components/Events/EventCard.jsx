@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Card, CardHeader, CardBody, Image } from "@nextui-org/react";
-import "./EventCard.css"; 
+import "./EventCard.css";
 
 export default function EventCard({ event }) {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -18,21 +18,21 @@ export default function EventCard({ event }) {
 
   return (
     <Card className="event-card">
-      <CardHeader className="pb-0 pt-2 px-4 flex-row items-start">
-        <h4 className="font-bold text-large">{event.name}</h4>
-      </CardHeader>
       <CardBody className="p-0 relative overflow-hidden">
         <div className="slider-container">
+          <h4 className="font-bold text-large">{event.name}</h4>
           <button className="prev" onClick={prevSlide}>
             &#10094;
           </button>
           <div className="slides">
             {event.images.map((image, idx) => (
-                idx === currentSlide ? <Image
+              idx === currentSlide ? (
+                <Image
                   alt={`Event ${event.name} Image ${idx + 1}`}
-                  className="object-cover rounded-xl h-full"
+                  className="object-cover"
                   src={image.url}
-                /> : <div></div>
+                />
+              ) : null
             ))}
           </div>
           <button className="next" onClick={nextSlide}>

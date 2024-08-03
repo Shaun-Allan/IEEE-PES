@@ -25,7 +25,7 @@ const Events = () => {
 
   return (
     <div className="page-container">
-      <h1>Events</h1>
+      <h1 className='events-title'>Events</h1>
       <div className="cards-container">
         {events.length === 0 ? (
           <div className="loading-image"></div>
