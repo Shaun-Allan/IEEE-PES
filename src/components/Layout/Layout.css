@@ -1,3 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Layout.css */
+.parallax-container {
+    position: relative;
+    min-height: 100vh; /* Ensure the container covers the viewport height */
+    overflow: hidden; /* Hide overflow to avoid scrollbars */
+  }
+
+  .parallax-container::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .parallax-container {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+  
