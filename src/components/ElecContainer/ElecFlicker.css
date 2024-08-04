@@ -1,0 +1,57 @@
+.elec-flicker-box {
+    width: 220px; /* Adjust width as needed */
+    height: 80px; /* Adjust height as needed */
+    padding: 20px;
+    background-color: #000000; /* Black background */
+    border: 5px solid rgb(182, 182, 86); /* Yellow border */
+    border-radius: 40px; /* Rounded corners */
+    color: white; /* White text color */
+    text-align: center;
+    display: flex; /* Use Flexbox */
+    align-items: center; /* Vertically center */
+    justify-content: center; /* Horizontally center */
+    box-shadow: 0 0 6px rgb(182, 182, 86), 0 0 10px rgb(182, 182, 86), 0 0 15px rgb(182, 182, 86), 0 0 20px rgb(182, 182, 86); /* Initial shadow */
+    animation: flicker 1s steps(0.2, start) infinite, pause 2s steps(1, start) infinite, delay 5.5s infinite; /* Flicker, pause, and delay animation */
+    animation-delay: 0s, 0.5s, 1s; /* Staggered start times */
+}
+
+@keyframes flicker {
+    0%, 100% {
+        border-color: rgb(182, 182, 86); /* Yellow border color */
+        box-shadow: 0 0 6px rgb(182, 182, 86), 0 0 10px rgb(182, 182, 86), 0 0 15px rgb(182, 182, 86), 0 0 20px rgb(182, 182, 86); /* Matching shadow color */
+    }
+    50% {
+        border-color: #414F38; /* Dark green border color */
+        box-shadow: 0 0 6px rgba(182, 182, 86, 0), 0 0 10px rgba(182, 182, 86, 0), 0 0 15px rgba(182, 182, 86, 0), 0 0 20px rgba(182, 182, 86, 0); /* Matching shadow color */
+    }
+}
+
+@keyframes pause {
+    0%, 100% {
+        border-color: rgb(182, 182, 86); /* Yellow border color */
+        box-shadow: 0 0 6px rgb(182, 182, 86), 0 0 10px rgb(182, 182, 86), 0 0 15px rgb(182, 182, 86), 0 0 20px rgb(182, 182, 86); /* Matching shadow color */
+    }
+    50% {
+        border-color: #000000; /* Black border color */
+        box-shadow: none; /* No shadow */
+    }
+}
+
+@keyframes delay {
+    0%, 100% {
+        border-color: rgb(182, 182, 86); /* Yellow border color */
+        box-shadow: 0 0 6px rgb(182, 182, 86), 0 0 10px rgb(182, 182, 86), 0 0 15px rgb(182, 182, 86), 0 0 20px rgb(182, 182, 86); /* Matching shadow color */
+    }
+    50% {
+        border-color: rgb(182, 182, 86); /* Yellow border color */
+        box-shadow: 0 0 6px rgb(182, 182, 86), 0 0 10px rgb(182, 182, 86), 0 0 15px rgb(182, 182, 86), 0 0 20px rgb(182, 182, 86); /* Matching shadow color */
+    }
+}
+
+@media (max-width: 500px) {
+    .elec-flicker-box {
+        width: 100%; /* Full width on mobile screens */
+        height: auto; /* Adjust height if needed */
+        box-sizing: border-box; /* Ensure padding and border are included in the width */
+    }
+}
