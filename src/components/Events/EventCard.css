@@ -38,6 +38,7 @@
 }
 
 .event-title {
+  color: #5ea13c;
   margin: 0;
   font-size: 2rem;
   font-weight: bold;
@@ -58,9 +59,9 @@
 }
 
 .event-date {
-  font-weight: 500;
+  font-weight: 200;
   margin: 5px 0;
-  font-size: 2rem;
+  font-size: 1.7rem;
   white-space: normal;
   word-wrap: break-word;
 }
