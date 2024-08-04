@@ -1,4 +1,3 @@
-/* Base styles */
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
 body {
@@ -89,7 +88,6 @@ body::-webkit-scrollbar {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
 }
 
-/* Scroll button styles */
 .scroll-buttons {
   display: flex;
   justify-content: center;
