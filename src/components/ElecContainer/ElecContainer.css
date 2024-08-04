@@ -24,3 +24,11 @@
         box-shadow: 0 0 6px rgba(255, 255, 0, 0), 0 0 10px rgba(255, 255, 0, 0), 0 0 15px rgba(255, 255, 0, 0), 0 0 20px rgba(255, 255, 0, 0); /* Matching shadow color */
     }
 }
+
+@media (max-width: 500px) {
+    .text-box {
+      width: 100%; /* Full width on mobile screens */
+      height: auto; /* Adjust height if needed */
+      box-sizing: border-box; /* Ensure padding and border are included in the width */
+    }
+  }

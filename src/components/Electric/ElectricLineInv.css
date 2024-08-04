@@ -1,41 +1,26 @@
-.line-container {
+.inverted-line-container {
     display: flex;
     align-items: center;
     justify-content: center; /* Center align the line */
     flex-shrink: 0; /* Prevent shrinking */
   }
   
-  .line {
+  .inverted-line {
     position: relative;
-    width: 100px;
     height: 3px;
-    background-color: rgba(0, 0, 0, 0.2); /* Hide default background */
+    background-color: rgba(0, 0, 0, 0.2); /* Background color */
     overflow: hidden;
   }
   
-  .electricity {
+  .inverted-electricity {
     position: absolute;
     width: 100%;
     height: 3px;
     background: linear-gradient(90deg, transparent, yellow, transparent);
-    animation: electricity 1s linear infinite;
+    animation: inverted-electricity-animation 1s linear infinite;
   }
   
-  @keyframes electricity {
-    from {
-      transform: translateX(100%);
-    }
-    to {
-      transform: translateX(-100%);
-    }
-  }
-  
-  /* Additional CSS for the inverted version */
-  .line-inverted .electricity {
-    animation: electricity-inverted 1s linear infinite;
-  }
-  
-  @keyframes electricity-inverted {
+  @keyframes inverted-electricity-animation {
     from {
       transform: translateX(100%);
     }
