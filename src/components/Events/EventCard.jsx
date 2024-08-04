@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Card, CardBody, Image } from "@nextui-org/react";
+import { Card, CardBody, CardHeader, Image } from "@nextui-org/react";
 import "./EventCard.css";
 
 export default function EventCard({ event }) {
@@ -28,7 +28,7 @@ export default function EventCard({ event }) {
       <CardBody className="p-0 relative overflow-hidden">
         <div className="slider-container" onClick={toggleDescription}>
           <div className="image-container">
-            {event.images.length > 1 && !showDescription  && (
+            {event.images.length > 1 && !showDescription && (
               <>
                 <button className="prev" onClick={prevSlide}>
                   &#10094;
@@ -50,6 +50,11 @@ export default function EventCard({ event }) {
                 )
               ))}
             </div>
+            {!showDescription && (
+              <div className="click-to-know-more">
+                Click to know more
+              </div>
+            )}
           </div>
           {showDescription && (
             <div className="description-container">
@@ -60,6 +65,11 @@ export default function EventCard({ event }) {
           )}
         </div>
       </CardBody>
+      <CardHeader class="card-read-more" onClick={toggleDescription} className="pb-0 pt-2 px-4 flex-col items-start">
+        <br></br>
+        <p class="card-read-more-text" className="text-tiny uppercase font-bold">{showDescription ? 'Tap again to see images' : 'Tap to know more'}</p>
+        <br></br>
+      </CardHeader>
     </Card>
   );
 }

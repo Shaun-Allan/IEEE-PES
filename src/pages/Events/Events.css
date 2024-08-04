@@ -1,9 +1,17 @@
+/* Base styles */
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
 body {
   margin: 0;
   padding: 0;
   background-color: #f4fced; 
+  animation: backgroundAnimation 15s ease infinite;
+}
+
+@keyframes backgroundAnimation {
+  0% { background-color: #f4fced; }
+  50% { background-color: #e0f7fa; }
+  100% { background-color: #f4fced; }
 }
 
 .page-container {
@@ -14,6 +22,12 @@ body {
   background-color: #f4fced; 
   padding: 20px;
   position: relative;
+  animation: fadeIn 2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 .events-title {
@@ -22,6 +36,12 @@ body {
   color: #414F38; 
   padding: 0%;
   margin: 0%;
+  animation: slideInDown 1s ease;
+}
+
+@keyframes slideInDown {
+  from { transform: translateY(-100%); }
+  to { transform: translateY(0); }
 }
 
 .cards-container {
@@ -56,6 +76,12 @@ body::-webkit-scrollbar {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
   background-color: #ffffff;
   transition: all 0.3s ease, box-shadow 0.3s ease;
+  animation: cardPopIn 1s ease;
+}
+
+@keyframes cardPopIn {
+  from { transform: scale(0); }
+  to { transform: scale(1); }
 }
 
 .card-container:hover {
@@ -63,6 +89,7 @@ body::-webkit-scrollbar {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
 }
 
+/* Scroll button styles */
 .scroll-buttons {
   display: flex;
   justify-content: center;
@@ -82,8 +109,16 @@ body::-webkit-scrollbar {
   visibility: hidden;
 }
 
-.cards-container:hover .scroll-button {
-  visibility: visible;
+@media (hover: hover) and (pointer: fine) {
+  .cards-container:hover .scroll-button {
+    visibility: visible;
+  }
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .scroll-button {
+    display: none;
+  }
 }
 
 .scroll-button.left {

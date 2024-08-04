@@ -24,23 +24,16 @@
   background: rgba(0, 0, 0, 0.8);
   color: white;
   z-index: 10;
-  visibility: hidden;
-  opacity: 0;
   transition: opacity 0.3s ease;
   padding: 20px;
   box-sizing: border-box;
   text-align: center;
 }
 
-.slider-container:hover .description-container {
-  visibility: visible;
-  opacity: 1;
-}
-
 .event-title {
   color: #5ea13c;
   margin: 0;
-  font-size: 2rem;
+  font-size: 4vw;
   font-weight: bold;
   white-space: normal;
   word-wrap: break-word;
@@ -48,10 +41,10 @@
 }
 
 .event-description {
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-weight: 100;
   margin: 10px 0;
-  font-size: 1rem;
+  font-size: 2.5vw;
   white-space: normal;
   word-wrap: break-word;
   line-height: 1.2;
@@ -61,7 +54,7 @@
 .event-date {
   font-weight: 200;
   margin: 5px 0;
-  font-size: 1.7rem;
+  font-size: 3vw;
   white-space: normal;
   word-wrap: break-word;
 }
@@ -110,6 +103,31 @@
   visibility: visible;
 }
 
+.click-to-know-more {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  font-size: 2.5vw;
+  z-index: 10;
+  transition: opacity 0.3s ease;
+  visibility: hidden;
+}
+
+.image-container:hover .click-to-know-more {
+  visibility: visible;
+}
+
+.card-read-more {
+  display: none;
+}
+
 @media (max-width: 550px) {
   .prev, .next {
     padding: 3px 11px;
@@ -117,14 +135,30 @@
     background-color: rgba(0, 0, 0, 0.3);
   }
   .event-title {
-    font-size: 2rem;
+    font-size: 6vw;
     padding-top: 20px;
   }
   .event-description {
-    font-size: 1rem;
+    font-size: 4vw;
   }
   .event-date {
     padding-top: 0;
-    font-size: 1.5rem;
+    font-size: 4.5vw;
+  }
+  .click-to-know-more {
+    display: none;
+  }
+  .card-read-more {
+    font-size: larger;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+  }
+  .card-read-more p {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: large;
+    color: rgba(0, 0, 0, 0.3);
+    margin: 0;
   }
 }
