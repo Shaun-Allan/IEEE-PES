@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 @keyframes slideInFromLeft {
   from {
     transform: translateX(-100%);
@@ -22,39 +23,45 @@
     opacity: 1;
   }
 }
+
 .contacts {
   .error {
     color: red;
     font-size: 0.875rem;
     margin-top: 0.25rem;
-    margin-top: 0;
-    
   }
 
   .lr {
     height: max-content;
-    background: #5ea13c;
+    background: #386c5f;
+    opacity: 1;
     display: flex;
-    justify-content: center;
-    align-items: stretch;
+    flex-direction: column;
+
+    @media (min-width: 1024px) {
+      flex-direction: row;
+      padding: 0;
+    }
 
     .left {
-      background-color: white;
+      background-color: #f4fced;
       flex-grow: 2;
-      padding-left: 80px;
-      padding-right: 80px;
-      padding-bottom: 80px;
-      padding-top: 30px;
+      padding: 20px;
+      margin: 0;
       align-items: start;
       height: 100%;
+      width: 100%;
       animation: slideInFromLeft 0.5s ease-in-out;
 
+      @media (min-width: 1024px) {
+        width: auto;
+        padding: 30px 80px 80px;
+      }
 
       .heading {
         font-size: xx-large;
         font-weight: bold;
-        margin-bottom: 30px;
-        margin-top: 30px;
+        margin: 30px 0;
       }
 
       .left_inputs {
@@ -64,9 +71,14 @@
         .one {
           padding-bottom: 50px;
           display: flex;
+          flex-direction: column;
           gap: 20px;
           width: 100%;
           animation: slideInFromLeft 0.5s ease-in-out;
+
+          @media (min-width: 768px) {
+            flex-direction: row;
+          }
 
           .input-wrapper {
             flex-grow: 1;
@@ -78,20 +90,23 @@
           }
         }
 
-
         .button-wrapper {
           display: flex;
-          justify-content: flex-end;
+          justify-content: center;
           margin-top: 30px;
           animation: slideInFromLeft 0.5s ease-in-out;
 
+          @media (min-width: 1024px) {
+            justify-content: flex-end;
+          }
+
           .button {
-            background-color: #5ea13c;
-            color: rgb(44, 44, 44);
+            background-color: #386c5f;
+            color: #f4fced;
 
             &:hover {
               background-color: #f4fced;
-              color: black;
+              color: #386c5f;
             }
           }
         }
@@ -100,39 +115,59 @@
 
     .right {
       align-self: center;
-      width: 30%;
-      height: 100%;
+      width: 100%;
       box-sizing: border-box;
-      padding: 0 100px;
+      padding: 20px;
       animation: slideInFromRight 0.5s ease-in-out;
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      @media (min-width: 1024px) {
+        width: 30%;
+        padding: 0 100px;
+        margin-top: 0;
+      }
+
       .details {
-        margin-bottom: 30px;
+        margin-bottom: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        width: 100%;
+        padding: 5px;
+        color: #f4fced;
+      }
 
-        .detailsTitle {
-          display: flex;
-          gap: 20px;
-          align-items: center;
-          margin-bottom: 2px;
+      .detailsTitle {
+        font-size: 18px;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        width: 100%;
+        text-align: left;
+        color: #f4fced;
 
-          .detitle {
-            font-size: large;
-          }
-
-          .icon {
-            transition: all 0.3s ease-in-out;
-
-            &:hover {
-              transform: scale(1.3);
-              color: #f4fced;
-              cursor: pointer;
-            }
+        .icon {
+          transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+          color: #f4fced;
+          
+          &:hover {
+            transform: scale(1.4);
+            color: #fff;
           }
         }
+      }
 
-        .detailsDescription {
-          margin-left: 50px;
-          color: black;
-        }
+      .detailsDescription {
+        font-size: 15px;
+        margin-top: 10px;
+        color: #f4fced;
+        text-align: start;
+        width: 100%;
+        font-style: italic;
       }
     }
   }
