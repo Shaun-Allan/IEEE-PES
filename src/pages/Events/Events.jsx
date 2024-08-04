@@ -5,23 +5,15 @@ import { fetchEvents } from '../../utils/DatabaseServices/Database';
 
 const Events = () => {
   const [events, setEvents] = useState([]);
-  const [error, setError] = useState(null);
 
   useEffect(() => {
     const loadEvents = async () => {
-      try {
-        const eventsList = await fetchEvents();
-        setEvents(eventsList);
-      } catch (err) {
-        console.error('Error fetching events:', err);
-        setError('Failed to load events.');
-      }
+      const eventsList = await fetchEvents();
+      setEvents(eventsList);
     };
 
     loadEvents();
   }, []);
-
-  if (error) return <div>{error}</div>;
 
   return (
     <div className="page-container">

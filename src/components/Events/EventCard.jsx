@@ -28,7 +28,7 @@ export default function EventCard({ event }) {
       <CardBody className="p-0 relative overflow-hidden">
         <div className="slider-container" onClick={toggleDescription}>
           <div className="image-container">
-            {event.images.length > 1 && (
+            {event.images.length > 1 && !showDescription  && (
               <>
                 <button className="prev" onClick={prevSlide}>
                   &#10094;
