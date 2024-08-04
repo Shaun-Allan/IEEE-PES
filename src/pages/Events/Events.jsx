@@ -1,7 +1,11 @@
+
 import React, { useState, useEffect, useRef } from 'react';
 import './Events.css';
 import EventCard from '../../components/Events/EventCard';
 import { fetchEvents } from '../../utils/DatabaseServices/Database'; 
+
+import React from 'react'
+
 
 const Events = () => {
   const [events, setEvents] = useState([]);
@@ -18,13 +22,13 @@ const Events = () => {
 
   const scrollLeft = () => {
     if (containerRef.current) {
-      containerRef.current.scrollBy({ left: -700, behavior: 'smooth' }); 
+      containerRef.current.scrollBy({ left: -300, behavior: 'smooth' }); 
     }
   };
 
   const scrollRight = () => {
     if (containerRef.current) {
-      containerRef.current.scrollBy({ left: 700, behavior: 'smooth' }); 
+      containerRef.current.scrollBy({ left: 300, behavior: 'smooth' }); 
     }
   };
 
