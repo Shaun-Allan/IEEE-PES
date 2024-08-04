@@ -29,6 +29,7 @@ import Footer from "../../components/Footer/Footer";
 import { useState, useEffect } from "react";
 import ElecLineVertical from "../../components/Electric/ElecLineVertical";
 import ElectricLineInv from "../../components/Electric/ElectricLineInv";
+import ElecFlicker from "../../components/ElecContainer/ElecFlicker";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -86,75 +87,58 @@ const Home = () => {
     });
   }, 100);
 
-  const [boffset, bsetOffset] = useState(); // Default offset for larger screens
-  const [noffset, nsetOffset] = useState(); // Default offset for larger screens
+  const [boffset, bsetOffset] = useState(); // Offset for larger screens
+  const [noffset, nsetOffset] = useState(); // Offset for larger screens
   const [foffset, fsetOffset] = useState();
   const [moffset, msetOffset] = useState();
   const [soffset, ssetOffset] = useState();
 
+  const handleResize = () => {
+    const width = window.innerWidth;
+
+    // Update offsets based on window width
+    if (width <= 500) {
+      ssetOffset(170); // Adjust for small screens
+      nsetOffset(5);
+      bsetOffset(2);
+      fsetOffset(4.79);
+      msetOffset(1);
+    } else if (width <= 768) {
+      ssetOffset(320);
+      nsetOffset(3.179);
+      bsetOffset(2);
+      fsetOffset(4.79);
+      msetOffset(1);
+    } else if (width <= 1120) {
+      ssetOffset(170);
+      nsetOffset(3.179);
+      bsetOffset(1.91);
+      fsetOffset(2.98);
+      msetOffset(2.5);
+    } else {
+      ssetOffset(170); // Default for larger screens
+      nsetOffset(3.179);
+      bsetOffset(1.91);
+      fsetOffset(2.98);
+      msetOffset(2.5);
+    }
+  };
 
   useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth <= 500) {
-        ssetOffset(170); // Adjust for tablets
-      } else if(window.innerWidth <=1120){
-        ssetOffset(320);
-      } else {
-        ssetOffset(170); // Default for larger screens
-      }
-    };
-
-    // Initial check
+    // Initial call to set up offsets
     handleResize();
 
     // Add resize listener
-    window.addEventListener("resize", handleResize);
+    window.addEventListener('resize', handleResize);
 
     // Clean up listener on unmount
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []); 
 
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth <= 500) {
-        nsetOffset(5); // Adjust for tablets
-      } else {
-        nsetOffset(3.179); // Default for larger screens
-      }
-    };
+  // Set interval for periodic checks
+  // window.addEventListener('resize', handleResize);// Adjust interval time as needed
 
-    // Initial check
-    handleResize();
-
-    // Add resize listener
-    window.addEventListener("resize", handleResize);
-
-    // Clean up listener on unmount
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth <= 768) {
-        bsetOffset(2); // Adjust for tablets
-        fsetOffset(4.79);
-        msetOffset(1);
-      } else {
-        bsetOffset(1.91); // Default for larger screens
-        fsetOffset(2.98);
-        msetOffset(2.5);
-      }
-    };
-
-    // Initial check
-    handleResize();
-
-    // Add resize listener
-    window.addEventListener("resize", handleResize);
-
-    // Clean up listener on unmount
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  // Clean up interval on unmount
 
   return (
     <Parallax pages={noffset}>
@@ -313,32 +297,32 @@ const Home = () => {
             </div>
             <div className="space-y-0">
               <div className="content-section mt-4 flex items-center space-x--50">
-                <ElecContainer children={"Awareness Rally"} />
+                <ElecContainer>Awareness Rally </ElecContainer>
                 <ElectricLine />
-                <ElecContainer children={"Guest Talks"} />
+                <ElecContainer>Guest Talks</ElecContainer>
                 <ElectricLine />
-                <ElecContainer children={"Field Visits"} />
+                <ElecContainer>Field Visits</ElecContainer>
               </div>
               <div className="first-line">
                 <ElecLineVertical />
               </div>
 
               <div className="content-section mt-4 flex items-center space-x--50">
-                <ElecContainer children={"Camps"} />
+                <ElecContainer>Camps</ElecContainer>
                 <ElectricLineInv />
-                <ElecContainer children={"Teaching Schools"} />
+                <ElecContainer>Teaching Schools</ElecContainer>
                 <ElectricLineInv />
-                <ElecContainer children={"Project Exhibition"} />
+                <ElecContainer>Project Exhibitions</ElecContainer>
               </div>
               <div className="second-line">
                 <ElecLineVertical />
               </div>
               <div className="content-section mt-4 flex items-center space-x--50">
-                <ElecContainer children={"Talks from different fields"} />
+                <ElecContainer>Talks from different Fields</ElecContainer>
                 <ElectricLine />
-                <ElecContainer children={"Hackathons & other competitions"} />
+                <ElecContainer>Hackathons and Other Competitions</ElecContainer>
                 <ElectricLine />
-                <ElecContainer children={"National Conference"} />
+                <ElecContainer>National Conference</ElecContainer>
               </div>
             </div>
           </div>
@@ -356,55 +340,55 @@ const Home = () => {
       <ParallaxLayer className="mobileParala mt-40" offset={2.8} speed={0.1}>
         <div className="m-elec flex flex-col text-white p-8">
           <div className="content-sectio w-full">
-            <ElecContainer children={"Awareness Rally"} />
+            <ElecContainer>Awareness Rally</ElecContainer>
           </div>
           <div className="content-sectio w-full">
             <ElecLineVertical />
           </div>
           <div className="content-sectio w-full">
-            <ElecContainer children={"Guest Talks"} />
+            <ElecContainer>Guest Talks</ElecContainer>
           </div>
           <div className="content-sectio w-full">
             <ElecLineVertical />
           </div>
           <div className="content-sectio w-full">
-            <ElecContainer children={"Field Visits"} />
+            <ElecContainer>Field Visits</ElecContainer>
           </div>
           <div className="content-sectio w-full">
             <ElecLineVertical />
           </div>
           <div className="content-sectio w-full">
-            <ElecContainer children={"Camps"} />
+            <ElecContainer>Camps</ElecContainer>
           </div>
           <div className="content-sectio w-full">
             <ElecLineVertical />
           </div>
           <div className="content-sectio w-full">
-            <ElecContainer children={"Teaching Schools"} />
+            <ElecContainer>Teaching Schools</ElecContainer>
           </div>
           <div className="content-sectio w-full">
             <ElecLineVertical />
           </div>
           <div className="content-sectio w-full">
-            <ElecContainer children={"Project Exhibition"} />
+            <ElecContainer>Project Exhibition</ElecContainer>
           </div>
           <div className="content-sectio w-full">
             <ElecLineVertical />
           </div>
           <div className="content-sectio w-full">
-            <ElecContainer children={"Talks from different fields"} />
+            <ElecContainer>Talks from different Fields</ElecContainer>
           </div>
           <div className="content-sectio w-full">
             <ElecLineVertical />
           </div>
           <div className="content-sectio w-full">
-            <ElecContainer children={"Hackathons & other competitions"} />
+            <ElecContainer>Hackathons and Other Competitions</ElecContainer>
           </div>
           <div className="content-sectio w-full">
             <ElecLineVertical />
           </div>
           <div className="content-sectio w-full">
-            <ElecContainer children={"National Conference"} />
+            <ElecContainer>National Conference</ElecContainer>
           </div>
         </div>
       </ParallaxLayer>
