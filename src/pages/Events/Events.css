@@ -13,6 +13,7 @@ body {
   height: 100%;
   background-color: #f4fced; 
   padding: 20px;
+  position: relative;
 }
 
 .events-title {
@@ -28,7 +29,7 @@ body {
   align-items: flex-start;
   justify-content: flex-start;
   overflow-x: auto;
-  overflow-y: disabled;
+  overflow-y: hidden;
   padding-left: 50px;
   padding-right: 50px;
   padding-top: 10px;
@@ -36,6 +37,7 @@ body {
   gap: 40px;
   background-color: #f4fced; 
   white-space: nowrap;
+  scroll-behavior: smooth;
 }
 
 body::-webkit-scrollbar {
@@ -61,6 +63,43 @@ body::-webkit-scrollbar {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
 }
 
+.scroll-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 10px;
+}
+
+.scroll-button {
+  background-color: #00000069;
+  color: #ffffff;
+  border: none;
+  height: 40%;
+  padding: 20px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  visibility: hidden;
+}
+
+.cards-container:hover .scroll-button {
+  visibility: visible;
+}
+
+.scroll-button.left {
+  position: absolute;
+  top: 35%;
+  left: 10px;
+  z-index: 15;
+}
+
+.scroll-button.right {
+  position: absolute;
+  top: 35%;
+  right: 10px;
+  z-index: 15;
+}
+
 @media (max-width: 550px) {
   .cards-container {
     flex-direction: column;
@@ -75,5 +114,9 @@ body::-webkit-scrollbar {
 
   .card-container:hover {
     transform: scale(1);
+  }
+
+  .scroll-buttons {
+    display: none; 
   }
 }
