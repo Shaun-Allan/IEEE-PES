@@ -1,9 +1,12 @@
 html, body {
   overflow: hidden;
+  background-color:#386c5f;
+  color: #386c5f;
 }
 
 .parallax-container {
   overflow: hidden;
+  background-color:#386c5f
 }
 
 .background {
@@ -149,12 +152,17 @@ html, body {
 .swiper-pagination {
   position: absolute;
   height: 10px;
-  padding-top: 10px;
-  transform: translateY(20px);
+  padding-top: 20px;
+  transform: translateY(50px);
   width: 100%;
   display: flex;
   justify-content: center;
 }
+
+.m-power-span{
+  line-height: 55px;
+}
+
 
 /* Style the pagination bullets */
 .swiper-pagination .swiper-pagination-bullet {
@@ -251,6 +259,17 @@ html, body {
   transform: translateY(0);
 }
 
+.content-sectio{
+  opacity: 0;
+  transition: 500ms;
+  transform: translateY(30px);
+}
+
+.content-sectio.show{
+  opacity: 100;
+  transform: translateY(0);
+}
+
 
 
 .power-text{
@@ -337,3 +356,240 @@ html, body {
 .animated-butto:hover {
   background-color: #5ea13c; /* Change color on hover */
 }
+
+.m-new-section{
+  visibility: collapse;
+}
+
+
+
+.blend-section{
+  height: 20vh;
+}
+
+.m-blend-p{
+  visibility: collapse;
+}
+
+.m-power-text{
+  visibility: collapse;
+}
+
+.swiper-button-next{
+  margin-right: 50px;
+}
+.swiper-button-prev{
+  margin-left: 15px;
+}
+
+
+
+
+@media (min-width: 1000px) and (max-width: 1280px) {
+  .amp-text-down.show {
+    margin-right: 100px;
+  }
+}
+
+
+
+
+
+
+
+
+
+@media (max-width: 500px) {
+  .swiper-button-next{
+    margin-right: 0;
+  }
+  .swiper-button-prev{
+    margin-left: -30px;
+  }
+  .about-section{
+    height: 120vh;
+  }
+  .new-section{
+    visibility: collapse;
+  }
+  .mobileParal{
+    visibility: visible;
+    height: 180vh;
+  }
+  .m-new-section{
+    height: 100%;
+    background-color: #414F38;
+  }
+  .title-layer h1 {
+    font-size: 2.5rem; /* Adjust for very small screens */
+    white-space: pre-wrap; /* Allows for line breaks within text */
+    margin-bottom: -10px;
+  }
+  .m-blend-p{
+    visibility: visible;
+  
+  }
+  .m-blend-section{
+    height: 60vh;
+  }
+  .m-new-section{
+    height: 120vh;
+  }
+
+
+
+
+
+
+  .ieee{
+    font-size: 3.5rem;
+  }
+
+  .pes{
+    line-height: 60px;
+    padding: 0 16px;
+  }
+
+  .sloganType{
+    font-size: 1.7rem; /* Adjust for very small screens */
+  }
+
+  .blend-section{
+    height: 30vh;
+  }
+
+  .power-text{
+    font-size: 2px;
+  }
+
+  .m-new-new{
+    height: 300vh;
+  }
+}
+
+.title-layer h1 span {
+  display: block; /* Force line breaks */
+}
+
+
+.about {
+  flex-direction: row; /* Stack items in a column on mobile */
+  text-align: center; /* Center-align text */
+}
+
+.amp-text-down{
+  margin-right: 100px;
+}
+
+
+
+
+@media (max-width: 800px) {
+  .about{
+    flex-direction: column;
+  }
+  .m-power-text{
+    color: white;
+    visibility: visible;
+  }
+  .blend-section{
+    height: 30vh;
+  }
+  .m-new-section{
+    display: flex; /* Enable Flexbox */
+    visibility: visible;
+    align-items: center;
+    justify-items: center;
+    
+  }
+  .m-power-text{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 0 40px;
+    left: 0%;
+    transform: translateY(-50%);
+  }
+  .amp-text{
+    margin-top: 90px;
+  }
+  .amp-text-down{
+    text-align: justify;
+    margin-right: 0px;
+  }
+  .about {
+    flex-direction: column; /* Stack items in a column on mobile */
+    text-align: center; /* Center-align text */
+  }
+
+  .flex-container {
+    flex-direction: column; /* Stack items in a column on mobile */
+    gap: 1rem; /* Adjust spacing between items */
+  }
+
+  .swiper_container {
+    height: auto; /* Allow height to adjust based on content */
+    padding: 1rem 0; /* Adjust padding for mobile */
+  }
+
+  .swiper-slide {
+    width: 90%; /* Adjust slide width for mobile */
+    height: auto; /* Allow height to adjust based on content */
+  }
+
+  .swiper-slide img {
+    width: 80%; /* Ensure images fit within the slide */
+    height: auto; /* Maintain aspect ratio */
+  }
+  
+    .swiper-pagination{
+      height: 60px;
+      padding-top: 0;
+    }
+
+    .swiper-slide img {
+      width: 180px;
+      height: 123px;
+      border-radius: 2rem;
+      object-fit: cover;
+    }
+
+    .mobileParal{
+      display: block;
+    }
+
+    
+
+
+}
+
+.first-line {
+  margin-left: calc(100vw - 450px);
+}
+
+
+.second-line {
+  margin-right: calc(100vw - 450px);
+}
+
+
+@media (min-width: 1000px) and (max-width: 1120px) {
+  .about{
+    flex-direction: column;
+    gap: 90px;
+  }
+
+  .swiper-button-next{
+    margin-left: 100px;
+  }
+
+
+  
+
+}
+
+
+
+
+
+

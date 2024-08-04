@@ -1,13 +1,26 @@
-import React from 'react';
-import './ElectricLineInv.css';
+import React, { useEffect, useState } from 'react';
+import "./ElectricLineInv.css";
 
-const ElectricLineInv = ({ inverted }) => {
-  const lineClassName = inverted ? 'line-inverted' : '';
+const ElectricLineInv = () => {
+  const [lineWidth, setLineWidth] = useState("100%");
 
+  useEffect(() => {
+    const updateLineWidth = () => {
+      const screenWidth = window.innerWidth;
+      const containerWidth = 350; // Default value if not provided
+      const newLineWidth = screenWidth / 3 - containerWidth / 2;
+      setLineWidth(`${newLineWidth}px`);
+    };
+
+    updateLineWidth();
+    window.addEventListener("resize", updateLineWidth);
+
+    return () => window.removeEventListener("resize", updateLineWidth);
+  }, []);
   return (
-    <div className="line-container">
-      <div className={`line ${lineClassName}`}>
-        <div className="electricity"></div>
+    <div className="inverted-line-container">
+      <div className="inverted-line" style={{ width: lineWidth }}>
+        <div className="inverted-electricity"></div>
       </div>
     </div>
   );

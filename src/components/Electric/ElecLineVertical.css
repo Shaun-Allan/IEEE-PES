@@ -2,14 +2,15 @@
     display: flex;
     align-items: center;
     justify-content: center; /* Center align the line */
-    flex-shrink: 0; /* Prevent shrinking */
     height: 100%; /* Full height of the container */
+    width: 100%; /* Full width of the container */
   }
   
   .vertical-line {
     position: relative;
-    width: 3px; /* Adjust for vertical line width */
-    background-color: rgba(0, 0, 0, 0.2); /* Hide default background */
+    width: 3px; /* Width of the vertical line */
+    background-color: rgba(0, 0, 0, 0.2); /* Background color */
+    height: 80px; /* Height of the line */
     overflow: hidden;
   }
   

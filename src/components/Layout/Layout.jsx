@@ -13,20 +13,21 @@ const Layout = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
+
   return (
-    <>
-      <Head />
-      <div style={{ overflowY: "hidden" }}>
+    <div className="relative min-h-screen">
+      <Head className="header"/>
+      <div className="content mt-[var(--header-height)]">
         <div ref={wrapperRef}>
           {imagesLoaded ? (
-            <Outlet style={{ overflowY: "hidden" }} />
+            <Outlet />
           ) : (
             <Loader />
           )}
         </div>
         <Footer />
       </div>
-    </>
+    </div>
   );
 };
 
