@@ -4,7 +4,6 @@ import './Events.css';
 import EventCard from '../../components/Events/EventCard';
 import { fetchEvents } from '../../utils/DatabaseServices/Database'; 
 
-import React from 'react'
 
 
 const Events = () => {
