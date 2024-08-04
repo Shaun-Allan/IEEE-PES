@@ -1,3 +1,48 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Use Tailwind's responsive utilities directly in your JSX */
+
+
+.footer {
+  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #f4fced;
+  color: black;
+}
+
+.footer-left {
+  text-align: left;
+}
+
+.footer-center {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.footer-center a {
+  color: black;
+  font-size: 24px;
+}
+
+.footer-right {
+  text-align: right;
+  padding-right: 10px;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .footer-left {
+    display: none;
+  }
+
+  .footer{
+    flex-direction: column;
+    gap: 10px;
+  }
+}

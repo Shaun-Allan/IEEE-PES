@@ -1,76 +1,61 @@
-import React from "react";
-import "./Header.css";
-import {
-  Navbar,
-  NavbarBrand,
-  NavbarContent,
-  NavbarItem,
-  NavbarMenuToggle,
-  NavbarMenu,
-  NavbarMenuItem,
-  Button
-} from "@nextui-org/react";
-import { NavLink } from "react-router-dom";  // Import NavLink component
+import React, { useState, useEffect } from "react";
+import { NavLink } from "react-router-dom";
+import ssnLogo from '../../assets/ssn.png'; // Import the SSN logo image
+import headerImage from '../../assets/logo.png'; // Import the new image
+import './Header.css'; // Ensure you have this CSS file
+import { Button } from "@nextui-org/react";
+import MobileHeader from './MobileHeader'; // Import the mobile header component
 
-const Head = () => {
-  return (
-    <>
-      <Navbar isBordered>
-        <NavbarBrand>
-          <p className="font-bold text-inherit">IEEE PES</p>
-        </NavbarBrand>
-        <NavbarContent className="hidden sm:flex gap-10" justify="end">
-          <NavbarItem>
-            <NavLink
-              exact
-              to="/"
-              className="text-foreground"
-              activeClassName="active"
-            >
-              Home
-            </NavLink>
-          </NavbarItem>
-          <NavbarItem>
-            <NavLink
-              to="/events"
-              className="text-foreground"
-              activeClassName="active"
-            >
-              Events
-            </NavLink>
-          </NavbarItem>
-          <NavbarItem>
-            <NavLink
-              to="/team"
-              className="text-foreground"
-              activeClassName="active"
-            >
-              Team
-            </NavLink>
-          </NavbarItem>
-          <NavbarItem>
-            <NavLink
-              to="/contact"
-              className="text-foreground"
-              activeClassName="active"
-            >
-              Contact
-            </NavLink>
-          </NavbarItem>
-        </NavbarContent>
-        {/* <NavbarContent justify="end">
-          <NavbarItem className="hidden lg:flex">
-            <NavLink to="/login" activeClassName="active">Login</NavLink>
-          </NavbarItem>
-          <NavbarItem>
-            <Button as={NavLink} color="primary" to="/signup" variant="flat">
-              Sign Up
-            </Button>
-          </NavbarItem>
-        </NavbarContent> */}
-      </Navbar>
-    </>
+const Header = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 1024);
+    };
+
+    handleResize(); // Check initial size
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  return isMobile? (
+    <MobileHeader />
+  ) : (
+    <header className="navbar shadow-lg h-20 flex items-center justify-between px-8 bg-white border-b border-gray-200">
+      <div className="flex items-center gap-4">
+        <img src={headerImage} alt="Header Image" className="header-image h-12" />
+        <p className="heading font-bold">IEEE Power and Energy Society</p>
+      </div>
+      <nav className="hidden sm:flex gap-14">
+        <NavLink exact to="/" className="nav-link" activeClassName="active">
+          Home
+        </NavLink>
+        <NavLink to="/events" className="nav-link" activeClassName="active">
+          Events
+        </NavLink>
+        <NavLink to="/team" className="nav-link" activeClassName="active">
+          Team
+        </NavLink>
+        <NavLink to="/contact" className="nav-link" activeClassName="active">
+          Contact
+        </NavLink>
+      </nav>
+      <div className="flex items-center gap-8">
+        <Button
+          as={NavLink}
+          to="/signup"
+          variant="flat"
+          color="#386c5f"
+          className="animated-button"
+        >
+          Join IEEE PES
+        </Button>
+        <img src={ssnLogo} alt="SSN Logo" className="navbar-logo h-10" />
+      </div>
+    </header>
   );
 };
 
-export default Head;
+export default Header;

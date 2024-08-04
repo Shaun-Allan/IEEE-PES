@@ -1,3 +1,38 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Layout.css */
+.parallax-container {
+    position: relative;
+    min-height: 100vh; /* Ensure the container covers the viewport height */
+    overflow: hidden; /* Hide overflow to avoid scrollbars */
+  }
+
+  .parallax-container::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .parallax-container {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+
+  :root {
+    --header-height: 75px; /* Adjust based on your header height */
+  }
+  
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000; /* Ensures the header stays above other content */
+  }
+  
+  .content {
+    margin-top: var(--header-height); /* Ensure content doesn't get hidden behind header */
+  }
+  
+  
