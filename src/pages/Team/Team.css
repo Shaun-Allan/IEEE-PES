@@ -1,3 +1,194 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: auto;
+}
+
+#root {
+  min-height: 100%;
+  overflow: auto;
+}
+
+.team-container {
+  display: flex;
+  justify-content: center; /* Center the items horizontally */
+  flex-wrap: wrap; /* Allow items to wrap if needed */
+  width: 100%;
+  margin: 0 auto;
+  padding: 16px;
+  gap: 20px; /* Gap between each team card */
+  max-width: 1200px; /* Maximum width of the container */
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.team-section {
+  background: linear-gradient(135deg, #386c5f, #386c5f);
+  margin-bottom: 40px;
+  border-radius: 12px;
+}
+
+.team-section h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  text-align: center;
+  color: #f4fced;
+}
+
+.team-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px #5ea13c;
+  transition: transform 0.3s, box-shadow 0.3s;
+  padding: 10px;
+  width: 200px; 
+  margin: 0; 
+}
+
+.team-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.team-card-image {
+  width: 150px; 
+  height: 150px; 
+  object-fit: cover;
+  border-radius: 12px;
+  max-width: 100%; 
+  height: auto; 
+}
+
+.team-card-body {
+  text-align: center;
+}
+
+.team-card-name {
+  margin: 10px 0 5px 0;
+  font-size: 18px;
+  color: #3175b1;
+}
+
+.team-card-role {
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: black; }
+}
+
+@keyframes increase-font-size {
+  from { font-size: 2rem; }
+  to { font-size: 4rem; }
+}
+
+.typing-animation {
+  overflow: hidden; 
+  white-space: nowrap; 
+  border-right: 0.15em #386c5f; 
+  animation: typing 2s steps(40, end), blink-caret 0.75s step-end infinite;
+  color: #386C5F;
+}
+
+.increase-font-size {
+  animation: increase-font-size 2s forwards;
+}
+
+.quote-animation {
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 0.15em solid #3175b1; 
+  animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+.team-heading-wrapper, .quote-wrapper {
+  display: inline-block;
+}
+
+.quote-container {
+  background-color: #f4fced;
+  border-left: 5px solid #386c5f;
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 8px;
+  text-align: center;
+  font-style: italic;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.quote-text {
+  font-size: 1.5rem;
+  color: #414F38;
+  margin: 0;
+}
+
+.slide-left {
+  animation: slideInLeft 0.5s ease-out;
+}
+
+.slide-right {
+  animation: slideInRight 0.5s ease-out;
+}
+
+@keyframes slideInLeft {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 640px) {
+  .team-card {
+    width: 100%; 
+    margin: 10px 0; 
+  }
+
+  .team-card-image {
+    width: 100%; 
+    height: auto; 
+  }
+
+  .quote-text {
+    font-size: 1.25rem; 
+  }
+}
+
+@media (min-width: 768px) {
+  .team-card {
+    width: 200px; 
+    margin: 0; 
+  }
+}
