@@ -23,13 +23,17 @@ const TeamSection = ({ title, members, animationClass }) => (
 const Team = () => {
   const [showTitle, setShowTitle] = useState(false);
   const [showQuote, setShowQuote] = useState(false);
+  const [fadeQuote, setFadeQuote] = useState(false);
 
   useEffect(() => {
-    const titleTimer = setTimeout(() => setShowTitle(true), 500); // Delay for typing effect
-    const quoteTimer = setTimeout(() => setShowQuote(true), 1500); // Delay for quote effect
+    const titleTimer = setTimeout(() => setShowTitle(true), 500); 
+    const quoteTimer = setTimeout(() => setShowQuote(true), 2500);
+    const fadeTimer = setTimeout(() => setFadeQuote(true), 3500); 
+
     return () => {
       clearTimeout(titleTimer);
       clearTimeout(quoteTimer);
+      clearTimeout(fadeTimer);
     };
   }, []);
 
@@ -38,10 +42,13 @@ const Team = () => {
       <h1 className={`team-heading text-center mb-8 ${showTitle ? 'typing-animation increase-font-size' : 'team-heading-wrapper'}`}>
         OUR TEAM
       </h1>
-      
+
       {showQuote && (
         <div className="quote-container">
-          <p className="quote-text quote-animation">"Together Everyone Achieves More"</p>
+          <p className="quote-text quote-animation">"WIRED FOR SUCCESS"</p>
+          <p className={`quote-description ${fadeQuote ? 'fade-in' : 'fade-out'}`}>
+            Fusing our energies dynamically to create electric achievements and transformative outcomes.
+          </p>
         </div>
       )}
 
