@@ -33,7 +33,7 @@
 .event-title {
   color: #5ea13c;
   margin: 0;
-  font-size: 4vw;
+  font-size: 2rem;
   font-weight: bold;
   white-space: normal;
   word-wrap: break-word;
@@ -44,7 +44,7 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-weight: 100;
   margin: 10px 0;
-  font-size: 2.5vw;
+  font-size: 1rem;
   white-space: normal;
   word-wrap: break-word;
   line-height: 1.2;
@@ -54,7 +54,7 @@
 .event-date {
   font-weight: 200;
   margin: 5px 0;
-  font-size: 3vw;
+  font-size: 1.7rem;
   white-space: normal;
   word-wrap: break-word;
 }
@@ -112,9 +112,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.7);
   color: white;
-  font-size: 2.5vw;
+  font-size: 2vw;
   z-index: 10;
   transition: opacity 0.3s ease;
   visibility: hidden;
@@ -124,41 +124,22 @@
   visibility: visible;
 }
 
-.card-read-more {
-  display: none;
-}
-
 @media (max-width: 550px) {
   .prev, .next {
-    padding: 3px 11px;
+    padding: 4px 12px;
     visibility: visible;
     background-color: rgba(0, 0, 0, 0.3);
   }
   .event-title {
-    font-size: 6vw;
-    padding-top: 20px;
+    font-size: 5vw;
   }
   .event-description {
-    font-size: 4vw;
+    font-size: 3vw;
   }
   .event-date {
-    padding-top: 0;
-    font-size: 4.5vw;
+    font-size: 4vw;
   }
   .click-to-know-more {
     display: none;
-  }
-  .card-read-more {
-    font-size: larger;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px 0;
-  }
-  .card-read-more p {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: large;
-    color: rgba(0, 0, 0, 0.3);
-    margin: 0;
   }
 }

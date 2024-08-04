@@ -65,11 +65,6 @@ export default function EventCard({ event }) {
           )}
         </div>
       </CardBody>
-      <CardHeader class="card-read-more" onClick={toggleDescription} className="pb-0 pt-2 px-4 flex-col items-start">
-        <br></br>
-        <p class="card-read-more-text" className="text-tiny uppercase font-bold">{showDescription ? 'Tap again to see images' : 'Tap to know more'}</p>
-        <br></br>
-      </CardHeader>
     </Card>
   );
 }
