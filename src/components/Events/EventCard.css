@@ -21,7 +21,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.9);
   color: white;
   z-index: 10;
   transition: opacity 0.3s ease;
@@ -38,25 +38,31 @@
   white-space: normal;
   word-wrap: break-word;
   line-height: 1;
+  padding: 0%;
+  margin: 0%;
 }
 
 .event-description {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-weight: 100;
+  font-weight: 400;
   margin: 10px 0;
   font-size: 1rem;
   white-space: normal;
   word-wrap: break-word;
   line-height: 1.2;
   transition: all 0.1s;
+  padding: 0%;
+  margin: 0%;
 }
 
 .event-date {
-  font-weight: 200;
+  font-weight: 400;
   margin: 5px 0;
-  font-size: 1.7rem;
+  font-size: 1.2rem;
   white-space: normal;
   word-wrap: break-word;
+  padding: 0%;
+  margin: 0%;
 }
 
 .slides {
@@ -114,7 +120,7 @@
   justify-content: center;
   background-color: rgba(0, 0, 0, 0.7);
   color: white;
-  font-size: 2vw;
+  font-size: 2rem;
   z-index: 10;
   transition: opacity 0.3s ease;
   visibility: hidden;

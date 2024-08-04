@@ -59,11 +59,11 @@ export default function EventCard({ event }) {
           {showDescription && (
             <div className="description-container">
               <h4 className="event-title">{event.name}</h4>
-              <p className="event-description">{event.description}</p>
               <p className="event-date">{event.date}</p>
+              <p className="event-description">{event.description}</p>
             </div>
           )}
-        </div>
+        </div>  
       </CardBody>
     </Card>
   );
