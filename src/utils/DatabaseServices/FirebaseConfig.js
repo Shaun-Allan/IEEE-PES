@@ -6,16 +6,18 @@ import { getStorage } from 'firebase/storage';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyBERns_ngCHIH1-S4oS2GaWE7mpIo_rp8o",
-  authDomain: "ieee-pes-xxxxx.firebaseapp.com",
-  projectId: "ieee-pes-xxxxx",
-  storageBucket: "ieee-pes-xxxxx.appspot.com",
-  messagingSenderId: "335364673380",
-  appId: "1:335364673380:web:bb8f8991256d7ab9c17471",
-  measurementId: "G-YCST87FXMM"
+  apiKey: "AIzaSyBonSLA2CzX9D2hC7YSc3u1dPQdG7dgfdQ",
+  authDomain: "ssn-ieee-pes.firebaseapp.com",
+  projectId: "ssn-ieee-pes",
+  storageBucket: "ssn-ieee-pes.appspot.com",
+  messagingSenderId: "893613198069",
+  appId: "1:893613198069:web:b49fc2995a5fc98c0213bc",
+  measurementId: "G-NEHRFWJQMB"
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-export const db = getFirestore(app);
-export const storage = getStorage(app);
+const db = getFirestore(app);
+const storage = getStorage(app);
+
+export { db, storage };

@@ -1,9 +1,127 @@
-import React from 'react'
+import React, { useState } from 'react';
+import { collection, query, getDocs, addDoc } from 'firebase/firestore';
+import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
+import { db, storage } from '../../utils/DatabaseServices/FirebaseConfig'; needed
+
+import './EditEvents.css';
 
 const EditEvents = () => {
-  return (
-    <div>EditEvents</div>
-  )
-}
+  const [eventTitle, setEventTitle] = useState('');
+  const [eventDescription, setEventDescription] = useState('');
+  const [eventDate, setEventDate] = useState('');
+  const [images, setImages] = useState([]);
 
-export default EditEvents
+  const handleImageChange = (e) => {
+    setImages([...e.target.files]);
+    console.log(e.target.files);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    console.log(1);
+    const monthMap = {
+      1: 'January', 2: 'February', 3: 'March', 4: 'April', 5: 'May', 6: 'June',
+      7: 'July', 8: 'August', 9: 'September', 10: 'October', 11: 'November', 12: 'December'
+    };
+  
+    const eventYear = eventDate.slice(0, 4);
+    const eventMonth = monthMap[parseInt(eventDate.slice(5, 7))];
+  
+    const imageUrls = [];
+    for (const file of images) {
+      const imagePath = `Events/${eventYear}/${file.name}`; 
+      const imageRef = ref(storage, imagePath); 
+  
+      await uploadBytes(imageRef, file); 
+      const url = await getDownloadURL(imageRef); 
+      imageUrls.push(url); 
+    }
+  
+    try {
+      const eventsCollection = collection(db, 'Events', 'Year', eventYear);
+      const q = query(eventsCollection);
+      const querySnapshot = await getDocs(q);
+      const eventCount = querySnapshot.size;
+  
+      await addDoc(eventsCollection, {
+        Name: eventTitle,
+        Description: eventDescription,
+        Month: eventMonth,
+        EventNo: eventCount + 1,
+        ImageUrls: imageUrls 
+      });
+  
+      console.log('Event added successfully!');
+    } catch (error) {
+      console.error('Error adding event:', error);
+    }
+  
+    
+    setEventTitle('');
+    setEventDescription('');
+    setEventDate('');
+    setImages([]);
+  };
+
+  return (
+    <div className="edit-events-container">
+      <h1>Add Events</h1>
+      <form onSubmit={handleSubmit} className="edit-events-form">
+        <div className="form-group">
+          <label htmlFor="title">Event Title:</label>
+          <input
+            type="text"
+            id="title"
+            placeholder="Enter event title"
+            value={eventTitle}
+            onChange={(e) => setEventTitle(e.target.value)}
+            required
+            className="form-input"
+          />
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="description">Event Description:</label>
+          <textarea
+            id="description"
+            placeholder="Enter event description"
+            value={eventDescription}
+            onChange={(e) => setEventDescription(e.target.value)}
+            required
+            className="form-textarea"
+          />
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="date">Event Date:</label>
+          <input
+            type="date"
+            id="date"
+            value={eventDate}
+            onChange={(e) => {
+              setEventDate(e.target.value);
+              console.log(e.target.value);
+            }}
+            required
+            className="form-input"
+          />
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="images">Images:</label>
+          <input
+            type="file"
+            id="images"
+            multiple
+            onChange={handleImageChange}
+            className="form-file-input"
+          />
+        </div>
+
+        <button type="submit" className="submit-button">Submit</button>
+      </form>
+    </div>
+  );
+};
+
+export default EditEvents;
