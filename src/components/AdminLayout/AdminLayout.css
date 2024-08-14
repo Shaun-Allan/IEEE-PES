@@ -18,15 +18,18 @@
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
   }
+
+  :root {
+    --header-height: 75px; /* Adjust based on your header height */
+  }
   
   .header {
-  position: fixed; /* Fixed position to stay at the top */
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000; /* Ensures the header stays above other content */
-  background-color: white; /* Set a background color if needed to ensure content doesn't show through */
-} 
+    position: absolute;
+    top: 0;
+    left:  0;
+    right: 0;
+    z-index: 1000; /* Ensures the header stays above other content */
+  }
   
   .content {
     margin-top: var(--header-height); /* Ensure content doesn't get hidden behind header */

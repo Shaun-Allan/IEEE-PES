@@ -369,6 +369,7 @@ html, body {
 
 .m-blend-p{
   visibility: collapse;
+
 }
 
 .m-power-text{
@@ -417,7 +418,8 @@ html, body {
     height: 180vh;
   }
   .m-new-section{
-    height: 100%;
+    min-height: 500vh;
+    margin-top: 80%;
     background-color: #414F38;
   }
   .title-layer h1 {
@@ -427,10 +429,9 @@ html, body {
   }
   .m-blend-p{
     visibility: visible;
-  
   }
   .m-blend-section{
-    height: 60vh;
+    height: 100vh;
   }
   .m-new-section{
     height: 120vh;
@@ -487,9 +488,11 @@ html, body {
 @media (max-width: 800px) {
   .about{
     flex-direction: column;
+    margin-top:  60px;
   }
   .m-power-text{
     color: white;
+    text-align: start;
     visibility: visible;
   }
   .blend-section{
@@ -592,4 +595,12 @@ html, body {
 
 
 
+.parallax-container::-webkit-scrollbar {
+  display: none;
+}
 
+/* Hide scrollbar for IE, Edge and Firefox */
+.parallax-container {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}

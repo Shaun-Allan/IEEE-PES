@@ -1,12 +1,11 @@
 import Footer from "../Footer/Footer";
 import { Outlet, useLocation } from "react-router";
-import Head from "../Header/Head";
+import AdminHeader from "../AdminHeader/AdminHeader";
 import { useEffect, useRef } from "react";
 import { useOnLoadImages } from "../../utils/hooks/useOnLoadImages";
 import Loader from "../Loader/Loader";
-import "./Layout.css";
 
-const Layout = () => {
+const AdminLayout = () => {
   const { pathname } = useLocation();
   const wrapperRef = useRef(null);
   const imagesLoaded = useOnLoadImages(wrapperRef);
@@ -15,11 +14,9 @@ const Layout = () => {
     window.scrollTo(0, 0);
   }, [pathname]);
 
-  const isHomePage = pathname === "/";
-
   return (
-    <div className={`relative min-h-screen ${isHomePage ? 'overflow-hidden' : ''}`}>
-      <Head className="header" />
+    <div className="relative min-h-screen">
+      <AdminHeader className="header" />
       <div className="content mt-[var(--header-height)]">
         <div ref={wrapperRef}>{imagesLoaded ? <Outlet /> : <Loader />}</div>
         <Footer />
@@ -28,4 +25,4 @@ const Layout = () => {
   );
 };
 
-export default Layout;
+export default AdminLayout;
