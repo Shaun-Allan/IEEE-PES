@@ -13,7 +13,6 @@ const EditEvents = () => {
 
   const handleImageChange = (e) => {
     setImages([...e.target.files]);
-    console.log(e.target.files);
   };
 
   const handleSubmit = async (e) => {
@@ -98,10 +97,7 @@ const EditEvents = () => {
             type="date"
             id="date"
             value={eventDate}
-            onChange={(e) => {
-              setEventDate(e.target.value);
-              console.log(e.target.value);
-            }}
+            onChange={(e) => setEventDate(e.target.value)}
             required
             className="form-input"
           />
