@@ -46,7 +46,7 @@ const EditEvents = () => {
       await addDoc(eventsCollection, {
         Name: eventTitle,
         Description: eventDescription,
-        Month: eventMonth,
+        Date: eventDate.toString(),
         EventNo: eventCount + 1,
         ImageUrls: imageUrls 
       });
