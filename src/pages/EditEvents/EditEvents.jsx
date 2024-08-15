@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { collection, query, getDocs, addDoc } from 'firebase/firestore';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
-import { db, storage } from '../../utils/DatabaseServices/FirebaseConfig'; needed
+import { db, storage } from '../../utils/DatabaseServices/FirebaseConfig';
 
 import './EditEvents.css';
 
