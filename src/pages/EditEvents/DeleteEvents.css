@@ -1,5 +1,3 @@
-/* DeleteEvents.css */
-
 .delete-events-container {
     width: 100%;
     max-width: 600px;
@@ -8,32 +6,32 @@
     background-color: #f9f9f9;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .delete-events-container h1 {
+}
+
+.delete-events-container h1 {
     font-size: 2em;
     margin-bottom: 20px;
     text-align: center;
     color: #333;
-  }
-  
-  .delete-events-form {
+}
+
+.delete-events-form {
     display: flex;
     flex-direction: column;
-  }
-  
-  .form-group {
+}
+
+.form-group {
     margin-bottom: 15px;
-  }
-  
-  .form-group label {
+}
+
+.form-group label {
     display: block;
     font-size: 1.1em;
     margin-bottom: 5px;
     color: #333;
-  }
-  
-  .form-group select {
+}
+
+.form-group select {
     width: 100%;
     padding: 10px;
     border: 1px solid #ddd;
@@ -41,9 +39,9 @@
     font-size: 1em;
     box-sizing: border-box;
     background-color: #fff;
-  }
-  
-  .delete-button {
+}
+
+.delete-button {
     background-color: #dc3545;
     color: #fff;
     border: none;
@@ -54,14 +52,39 @@
     transition: background-color 0.3s;
     display: block;
     margin: 20px auto 0;
-  }
-  
-  .delete-button:hover {
+    position: relative;
+}
+
+.delete-button:hover {
     background-color: #c82333;
-  }
-  
-  .delete-button:disabled {
+}
+
+.delete-button:disabled {
     background-color: #cccccc;
     cursor: not-allowed;
-  }
-  
+}
+
+.spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-left: 4px solid #fff;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    animation: spin 1s linear infinite;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.message {
+    margin-top: 15px;
+    font-size: 1.1em;
+    text-align: center;
+    color: #d9534f; 
+}

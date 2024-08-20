@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { collection, query, getDocs, doc, deleteDoc } from 'firebase/firestore';
-import { db } from '../../utils/firebase/firebase';
+import { collection, query, getDocs, doc, deleteDoc, getDoc } from 'firebase/firestore';
+import { ref, deleteObject } from 'firebase/storage';
+import { db, storage } from '../../utils/firebase/firebase'; 
 import './DeleteEvents.css';
 
 const DeleteEvents = ({ onClose }) => {
@@ -8,6 +9,8 @@ const DeleteEvents = ({ onClose }) => {
   const [events, setEvents] = useState([]);
   const [selectedYear, setSelectedYear] = useState('');
   const [selectedEvent, setSelectedEvent] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState('');
 
   // Fetch years for selection
   useEffect(() => {
@@ -49,14 +52,34 @@ const DeleteEvents = ({ onClose }) => {
   const handleDelete = async () => {
     if (!selectedEvent || !selectedYear) return;
 
+    setLoading(true);
+    setMessage('');
+    
     try {
       const eventDoc = doc(db, 'Events', 'Year', selectedYear, selectedEvent);
+      const eventSnapshot = await getDoc(eventDoc);
+      const eventData = eventSnapshot.data();
+      
+      if (eventData && eventData.ImageUrls) {
+        // Delete each image from Firebase Storage
+        await Promise.all(eventData.ImageUrls.map(async (url) => {
+          const imageRef = ref(storage, url);
+          await deleteObject(imageRef);
+        }));
+      }
+
+      // Delete the event document
       await deleteDoc(eventDoc);
 
-      console.log('Event deleted successfully!');
-      onClose(); // Close the form after deletion
+      setMessage('Event and images deleted successfully!');
+      setSelectedYear('');
+      setSelectedEvent('');
+      setEvents([]);
     } catch (error) {
-      console.error('Error deleting event:', error);
+      console.error('Error deleting event or images:', error);
+      setMessage('Error deleting event or images. Please try again.');
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -101,10 +124,12 @@ const DeleteEvents = ({ onClose }) => {
         <button
           onClick={handleDelete}
           className="delete-button"
-          disabled={!selectedEvent}
+          disabled={!selectedEvent || loading}
         >
-          Delete Event
+          {loading ? <div className="spinner"></div> : 'Delete Event'}
         </button>
+
+        {message && <div className="message">{message}</div>}
       </form>
     </div>
   );
