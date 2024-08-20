@@ -8,7 +8,7 @@ import Team from "./pages/Team/Team";
 import Events from "./pages/Events/Events";
 import Contact from "./pages/Contact/Contact";
 import Admin from "./pages/Admin/Admin";
-import EditEvents from "./pages/EditEvents/EditEvents";
+import EventModify from "./pages/EditEvents/EventOptions";
 import EditTeam from "./pages/EditTeam/EditTeam";
 
 const router = createBrowserRouter([
@@ -48,7 +48,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "events",
-        element: <EditEvents />, // EditEvents page
+        element: <EventModify />, // EditEvents page
       },
       {
         path: "team",

@@ -1,9 +1,9 @@
 import { collection, getDocs } from 'firebase/firestore';
-import { db } from './FirebaseConfig';
+import { db } from '../firebase/firebase';
 
 export const fetchEvents = async () => {
   try {
-    const eventsCollection = collection(db, 'events');
+    const eventsCollection = collection(db, 'Events');
     const eventSnapshot = await getDocs(eventsCollection);
 
     const eventsList = await Promise.all(
