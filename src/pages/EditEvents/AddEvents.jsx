@@ -9,6 +9,7 @@ const EditEvents = () => {
   const [eventDescription, setEventDescription] = useState('');
   const [eventDate, setEventDate] = useState('');
   const [images, setImages] = useState([]);
+  const [popupMessage, setPopupMessage] = useState('');
 
   const handleImageChange = (e) => {
     setImages([...e.target.files]);
@@ -16,49 +17,58 @@ const EditEvents = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(1);
+
     const monthMap = {
       1: 'January', 2: 'February', 3: 'March', 4: 'April', 5: 'May', 6: 'June',
       7: 'July', 8: 'August', 9: 'September', 10: 'October', 11: 'November', 12: 'December'
     };
-  
+
     const eventYear = eventDate.slice(0, 4);
     const eventMonth = monthMap[parseInt(eventDate.slice(5, 7))];
-  
+
     const imageUrls = [];
     for (const file of images) {
-      const imagePath = `Events/${eventYear}/${file.name}`; 
-      const imageRef = ref(storage, imagePath); 
-  
-      await uploadBytes(imageRef, file); 
-      const url = await getDownloadURL(imageRef); 
-      imageUrls.push(url); 
+      const imagePath = `Events/${eventYear}/${file.name}`;
+      const imageRef = ref(storage, imagePath);
+
+      try {
+        await uploadBytes(imageRef, file);
+        const url = await getDownloadURL(imageRef);
+        imageUrls.push(url);
+      } catch (error) {
+        console.error('Error uploading image:', error);
+      }
     }
-  
+
     try {
       const eventsCollection = collection(db, 'Events', 'Year', eventYear);
       const q = query(eventsCollection);
       const querySnapshot = await getDocs(q);
       const eventCount = querySnapshot.size;
-  
+
       await addDoc(eventsCollection, {
         Name: eventTitle,
         Description: eventDescription,
         Date: eventDate.toString(),
         EventNo: eventCount + 1,
-        ImageUrls: imageUrls 
+        ImageUrls: imageUrls
       });
-  
-      console.log('Event added successfully!');
+
+      setPopupMessage('Event added successfully!');
     } catch (error) {
       console.error('Error adding event:', error);
+      setPopupMessage('Error adding event. Please try again.');
     }
-  
-    
+
+    // Clear form fields
     setEventTitle('');
     setEventDescription('');
     setEventDate('');
     setImages([]);
+  };
+
+  const handleClosePopup = () => {
+    setPopupMessage('');
   };
 
   return (
@@ -115,6 +125,15 @@ const EditEvents = () => {
 
         <button type="submit" className="submit-button">Submit</button>
       </form>
+
+      {popupMessage && (
+        <div className="popup-overlay">
+          <div className="popup-message">
+            <p>{popupMessage}</p>
+            <button onClick={handleClosePopup}>Close</button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
