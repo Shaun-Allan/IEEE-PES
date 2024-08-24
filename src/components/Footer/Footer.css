@@ -1,18 +1,15 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-/* Use Tailwind's responsive utilities directly in your JSX */
-
-
 .footer {
-  
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 20px;
   background-color: #f4fced;
   color: black;
+}
+
+.footer-whole{
+  display: flex;
+  flex-direction: column;
 }
 
 .footer-left {
@@ -35,14 +32,40 @@
   padding-right: 10px;
 }
 
+/* Credits Section */
+.footer-credits {
+  text-align: center;
+  background-color: #f4fced; /* Same color as footer background */
+  padding: 10px;
+  word-spacing: 3.2px;
+  letter-spacing: 1.2px;
+}
+
+/* Divider */
+.divider {
+  height: 1px;
+  background-color: grey; /* Or any color that suits your design */
+  width: 100%;
+  align-self: center;
+  justify-self: center;
+}
+
 /* Mobile styles */
 @media (max-width: 768px) {
   .footer-left {
     display: none;
   }
 
-  .footer{
+  .footer {
     flex-direction: column;
     gap: 10px;
+  }
+
+  .footer-credits {
+    text-align: center;
+    background-color: #f4fced; /* Same color as footer background */
+    word-spacing: 0.5px;
+    letter-spacing: 0.1px;
+    font-size: 11px;
   }
 }

@@ -28,26 +28,5 @@ const Events = () => {
     }
   };
 
-  return (
-    <div className="page-container">
-      <h1 className='events-title'>Events</h1>
-      <div className="cards-container" ref={containerRef}>
-        <div className="scroll-buttons">
-          <button className="scroll-button left" onClick={scrollLeft}>❮</button>
-          <button className="scroll-button right" onClick={scrollRight}>❯</button>
-        </div>
-        {events.length === 0 ? (
-          <div className="loading-image"></div>
-        ) : (
-          events.map((event) => (
-            <div className="card-container" key={event.id}>
-              <EventCard event={event} />
-            </div>
-          ))
-        )}
-      </div>
-    </div>
-  );
-};
 
-export default Events;
+export default Events

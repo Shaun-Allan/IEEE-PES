@@ -99,27 +99,27 @@ const Home = () => {
     // Update offsets based on window width
     if (width <= 500) {
       ssetOffset(170); // Adjust for small screens
-      nsetOffset(5);
-      bsetOffset(2);
-      fsetOffset(4.79);
+      nsetOffset(6.01);
+      bsetOffset(3);
+      fsetOffset(5.65);
       msetOffset(1);
     } else if (width <= 768) {
       ssetOffset(320);
-      nsetOffset(3.179);
+      nsetOffset(3.32);
       bsetOffset(2);
       fsetOffset(4.79);
       msetOffset(1);
     } else if (width <= 1120) {
       ssetOffset(170);
-      nsetOffset(3.179);
+      nsetOffset(3.4);
       bsetOffset(1.91);
-      fsetOffset(2.98);
+      fsetOffset(3.079);
       msetOffset(2.5);
     } else {
       ssetOffset(170); // Default for larger screens
-      nsetOffset(3.179);
+      nsetOffset(3.29);
       bsetOffset(1.91);
-      fsetOffset(2.98);
+      fsetOffset(3.0);
       msetOffset(2.5);
     }
   };
@@ -141,7 +141,7 @@ const Home = () => {
   // Clean up interval on unmount
 
   return (
-    <Parallax pages={noffset}>
+    <Parallax className="parallax-container" pages={noffset}>
       {/* First Page */}
       <ParallaxLayer offset={0} speed={0.1}>
         <div className="background flex flex-col items-center justify-between text-black relative min-h-screen">
@@ -198,7 +198,7 @@ const Home = () => {
       <ParallaxLayer offset={1} speed={0.15}>
         <div className="about-section min-h-screen flex items-center justify-center">
           <div className="about flex items-center w-full max-w-7xl mx-auto px-4 space-x-8">
-            <div className="image-text flex-1 text-left flex flex-col justify-center space-y-10">
+            <div className="image-text flex-1 text-left flex flex-col justify-center items-start space-y-10">
               <h1 className="amp-text text-4xl font-bold mb-4 text-white">
                 Amping Up the Future
               </h1>
@@ -337,8 +337,11 @@ const Home = () => {
       <ParallaxLayer className="mobileParal" offset={2.5} speed={0.2}>
         <div className="m-new-section m-new-new flex flex-col text-white p-8"></div>
       </ParallaxLayer>
-      <ParallaxLayer className="mobileParala mt-40" offset={2.8} speed={0.1}>
-        <div className="m-elec flex flex-col text-white p-8">
+      <ParallaxLayer className="m-blend-p" offset={2.2} speed={0.1}>
+        <div className="m-blend-section absolute inset-0 bg-gradient-to-t from-[#414F38] to-[#386c5f]"></div>
+      </ParallaxLayer>
+      <ParallaxLayer className="mobileParala mt-40" offset={3.1} speed={0.1}>
+        <div className="m-elec mt-8 flex flex-col text-white p-8">
           <div className="content-sectio w-full">
             <ElecContainer>Awareness Rally</ElecContainer>
           </div>
@@ -392,10 +395,8 @@ const Home = () => {
           </div>
         </div>
       </ParallaxLayer>
-      <ParallaxLayer className="m-blend-p" offset={2} speed={0.1}>
-        <div className="m-blend-section absolute inset-0 bg-gradient-to-t from-[#414F38] to-[#386c5f]"></div>
-      </ParallaxLayer>
-      <ParallaxLayer offset={2} speed={1}>
+      
+      <ParallaxLayer offset={2.5} speed={1}>
         <div className="flex flex-row items-end mb-12">
           <h1 className="m-power-text text-4xl font-bold ml-5">
             <span className="m-power-span">
