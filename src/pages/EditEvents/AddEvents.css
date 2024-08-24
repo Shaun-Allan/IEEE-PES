@@ -57,7 +57,7 @@ h1 {
   background-color: #0056b3;
 }
 
-/* Popup styles */
+
 .popup-overlay {
   position: fixed;
   top: 0;
@@ -68,7 +68,7 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1000; /* Ensure it appears above other content */
+  z-index: 1000; 
 }
 
 .popup-message {
