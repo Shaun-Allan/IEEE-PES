@@ -3,7 +3,7 @@ export const teamMembers = {
       name: "Smitha M",
       image: "src/assets/teamImages/smitha.jpg"
     }],
-    ExecutiveBoard: [
+    OfficeBearers:[
       
     {
       name: "Anusha P D",
@@ -30,11 +30,28 @@ export const teamMembers = {
       role: "Joint Treasurer",
       image: "src/assets/teamImages/aarthi.jpg"
     }],
+    Verticals:[{
+      name: "Kiruthika",
+      role: "Design Head",
+      image: "src/assets/teamImages/kiruthika.jpg"
+    },{
+      name: "Samyuktha Sivakumar",
+      role: "PR Head",
+      image: "src/assets/teamImages/samyukthasivakumar.jpg"
+    },{
+      name: "Sanjay",
+      role: "Event Management Head",
+      image: "src/assets/teamImages/sanjay.jpg"
+    },{
+      name: "Shaun Allan",
+      role: "Technical Head",
+      image: "src/assets/teamImages/shaun.jpg"
+    }],
     designTeam: [
       {
-        name: "Kiruthika",
-        role: "Design Head",
-        image: "src/assets/teamImages/kiruthika.jpg"
+        name: "Arthika N",
+        role: "Designer",
+        image: "src/assets/teamImages/arthika.jpg"
       },
       {
         name: "Abijith",
@@ -48,11 +65,7 @@ export const teamMembers = {
       }
     ],
     prTeam: [
-      {
-        name: "Samyuktha Sivakumar",
-        role: "PR Head",
-        image: "src/assets/teamImages/samyukthasivakumar.jpg"
-      },
+      
       {
         name: "Asmita",
         role: "PR Member",
@@ -62,14 +75,15 @@ export const teamMembers = {
         name: "Krtin",
         role: "PR Member",
         image: "src/assets/teamImages/krtin.jpg"
+      },
+      {
+        name:"Sanjana",
+        role: "PR Member",
+        image: "src/assets/teamImages/sanjana.jpg"
       }
     ],
     eventManagementTeam: [
-      {
-        name: "Sanjay",
-        role: "Event Management Head",
-        image: "src/assets/teamImages/sanjay.jpg"
-      },
+      
       {
         name: "Pranathi",
         role: "Event Member",
@@ -79,14 +93,26 @@ export const teamMembers = {
         name: "Riya Menon",
         role: "Event Member",
         image: "src/assets/teamImages/riyamenon.jpg"
-      }
+      },
+      {
+        name: "Ananya Sivakumar",
+        role: "Event Member",
+        image: "src/assets/teamImages/ananya.jpg"
+      },
+      {
+        name: "Yhokesh",
+        role: "Event Member",
+        image: "src/assets/teamImages/yhokesh.jpg"
+      },
+      {
+        name: "Akshaya",
+        role: "Event Member",
+        image: "src/assets/teamImages/akshaya.jpg"
+      },
+
     ],
     technicalTeam: [
-      {
-        name: "Shaun Allan",
-        role: "Technical Head",
-        image: "src/assets/teamImages/shaun.jpg"
-      },
+      
       {
         name: "Pradeep K M",
         role: "Technical Member",
