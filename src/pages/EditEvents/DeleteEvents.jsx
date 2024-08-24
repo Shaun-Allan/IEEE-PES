@@ -12,7 +12,6 @@ const DeleteEvents = ({ onClose }) => {
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState('');
 
-  // Fetch years for selection
   useEffect(() => {
     const fetchYears = async () => {
       const startYear = 2022;
@@ -30,7 +29,6 @@ const DeleteEvents = ({ onClose }) => {
     fetchYears();
   }, []);
 
-  // Fetch events based on the selected year
   useEffect(() => {
     const fetchEvents = async () => {
       if (!selectedYear) return;
@@ -48,7 +46,6 @@ const DeleteEvents = ({ onClose }) => {
     fetchEvents();
   }, [selectedYear]);
 
-  // Handle the delete button click
   const handleDelete = async () => {
     if (!selectedEvent || !selectedYear) return;
 
@@ -61,14 +58,14 @@ const DeleteEvents = ({ onClose }) => {
       const eventData = eventSnapshot.data();
       
       if (eventData && eventData.ImageUrls) {
-        // Delete each image from Firebase Storage
+    
         await Promise.all(eventData.ImageUrls.map(async (url) => {
           const imageRef = ref(storage, url);
           await deleteObject(imageRef);
         }));
       }
 
-      // Delete the event document
+  
       await deleteDoc(eventDoc);
 
       setMessage('Event and images deleted successfully!');

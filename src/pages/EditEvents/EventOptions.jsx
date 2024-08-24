@@ -24,8 +24,9 @@ const EventModify = () => {
     setShowForm(true);
   };
 
-  const handleCloseForm = () => {
-    setShowForm(false);
+  const handleCloseForm = (newForm) => {
+    setFormMode(newForm);
+    setShowForm(true);
   };
 
   let FormComponent;

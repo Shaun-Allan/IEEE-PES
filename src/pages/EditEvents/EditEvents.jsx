@@ -15,8 +15,8 @@ const EditEvents = ({ onClose }) => {
   const [eventDate, setEventDate] = useState('');
   const [oldImageUrls, setOldImageUrls] = useState([]);
   const [newImages, setNewImages] = useState([]);
-  const [newImageUrls, setNewImageUrls] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [popupMessage, setPopupMessage] = useState('');
 
   useEffect(() => { 
     const fetchYears = () => {
@@ -92,7 +92,6 @@ const EditEvents = ({ onClose }) => {
     }
   
     setLoading(true); 
-  
     
     const uploadImageUrls = [];
     for (const file of newImages) {
@@ -119,19 +118,31 @@ const EditEvents = ({ onClose }) => {
         Date: eventDate,
         ImageUrls: allImageUrls,
       });
-      onClose();
+
+      setPopupMessage('Event edited successfully!');
+     
+      setEvents([]);
+      setSelectedYear('');
+      setSelectedEventId('');
+      setEventTitle('');
+      setEventDescription('');
+      setEventDate('');
+      setOldImageUrls([]);
+      setNewImages([]);
     } catch (error) {
-      console.error('Error updating event:', error);
+      setPopupMessage('Error editing event. Please try again.');
     } finally {
       setLoading(false); 
     }
   };
   
+  const handleClosePopup = () => {
+    setPopupMessage('');
+  };
 
   return (
     <div className="edit-events-container">
       <h1>Edit Event</h1>
-      {loading && <div className="loader"></div>}
       <form onSubmit={handleSave} className="edit-events-form">
         <div className="form-group">  {/* select year */}
           <label htmlFor="year">Select Year:</label>
@@ -212,19 +223,30 @@ const EditEvents = ({ onClose }) => {
                 <label>Images Available:</label>
                 <ul>
                   {oldImageUrls.map(url => (
-                    <li key={url}>
+                    <li className='flex justify-center items-center my-10' key={url}>
                       <img src={url} alt="Event" style={{ width: '100px', height: 'auto' }} />
-                      <button type="button" onClick={() => handleRemoveImage(url)} className="submit-button">Remove</button>
+                      <button type="button" onClick={() => handleRemoveImage(url)} className="remove-button">Remove</button>
                     </li>
                   ))}
                 </ul>
               </div>
             )}
 
-            <button type="submit" className="submit-button">Save Changes</button>
+            <button type="submit" className="submit-button"> {loading ? <div className="spinner"></div> : 'Save Changes'} </button>
           </>
         )}
       </form>
+
+      {popupMessage && (
+        <div className="popup-overlay">
+          <div className="popup-message">
+            <p>{popupMessage}</p>
+            <button onClick={handleClosePopup}>Close</button>
+          </div>
+        </div>
+      )}
+
+
     </div>
   );
 };

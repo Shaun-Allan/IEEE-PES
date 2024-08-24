@@ -60,7 +60,6 @@ const EditEvents = () => {
       setPopupMessage('Error adding event. Please try again.');
     }
 
-    // Clear form fields
     setEventTitle('');
     setEventDescription('');
     setEventDate('');
