@@ -28,6 +28,7 @@ body, html {
 h1 {
   text-align: center;
   margin-bottom: 20px;
+  overflow: hidden;
 }
 
 .team-section {
@@ -96,7 +97,7 @@ h1 {
 }
 
 @keyframes increase-font-size {
-  from { font-size: 2rem; }
+  from { font-size: 0rem; }
   to { font-size: 4rem; }
 }
 
@@ -104,12 +105,11 @@ h1 {
   overflow: hidden; 
   white-space: nowrap; 
   border-right: 0.15em #386c5f; 
-  animation: typing 4s steps(40, end), blink-caret 0.75s step-end infinite;
   color: #386C5F;
 }
 
 .increase-font-size {
-  animation: increase-font-size 2s forwards;
+  animation: increase-font-size 4s forwards;
 }
 
 .quote-animation {
@@ -118,11 +118,11 @@ h1 {
   border-right: 0.15em solid #3175b1; 
   animation: typing 4s steps(40, end), blink-caret 0.75s step-end infinite;
 }
-
+/*
 .team-heading-wrapper, .quote-wrapper {
   display: inline-block;
 }
-
+*/
 .quote-container {
   background-color: #f4fced;
   border-left: 5px solid #386c5f;
@@ -174,27 +174,7 @@ h1 {
   animation: slideInRight 1.5s ease-out;
 }
 
-@keyframes slideInLeft {
-  0% {
-    transform: translateX(-100%);
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
 
-@keyframes slideInRight {
-  0% {
-    transform: translateX(100%);
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
 
 @media (max-width: 640px) {
   .team-card {

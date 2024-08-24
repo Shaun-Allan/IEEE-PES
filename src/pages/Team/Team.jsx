@@ -54,11 +54,6 @@ const Team = () => {
 
       {Object.keys(teamMembers).map((teamKey, index) => {
         let animationClass = '';
-        if (index % 2 === 0) {
-          animationClass = 'slide-left';
-        } else {
-          animationClass = 'slide-right';
-        }
         return (
           <TeamSection 
             key={index} 
