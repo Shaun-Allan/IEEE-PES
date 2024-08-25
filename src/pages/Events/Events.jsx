@@ -1,8 +1,7 @@
-// Events.jsx
 import React, { useState, useEffect } from 'react';
 import './Events.css';
 import EventCard from '../../components/Events/EventCard';
-import Popup from '../../components/Events/Popup'; // Ensure correct import
+import Popup from '../../components/Events/Popup'; 
 import { fetchEvents } from '../../utils/DatabaseServices/Database';
 
 const Events = () => {

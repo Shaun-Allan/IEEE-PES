@@ -1,4 +1,3 @@
-/* Overlay with fade-in animation */
 .popup-overlay {
   position: fixed;
   top: 0;
@@ -11,7 +10,7 @@
   justify-content: center;
   z-index: 1000;
   opacity: 0;
-  animation: fadeIn 0.3s forwards; /* Animation for showing */
+  animation: fadeIn 0.3s forwards; 
 }
 
 .popup-content {
@@ -24,9 +23,9 @@
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   overflow: auto;
   max-height: 90vh;
-  transform: translateY(-20px); /* Start slightly above */
+  transform: translateY(-20px); 
   opacity: 0;
-  animation: slideIn 0.3s forwards; /* Animation for showing */
+  animation: slideIn 0.3s forwards; 
 }
 
 .popup-content::-webkit-scrollbar {
@@ -131,7 +130,6 @@
   }
 }
 
-/* Keyframe animations */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -151,5 +149,3 @@
     opacity: 1;
   }
 }
-
-/* For closing the popup, use animation classes dynamically with JavaScript */

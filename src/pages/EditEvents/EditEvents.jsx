@@ -144,7 +144,7 @@ const EditEvents = ({ onClose }) => {
     <div className="edit-events-container">
       <h1>Edit Event</h1>
       <form onSubmit={handleSave} className="edit-events-form">
-        <div className="form-group">  {/* select year */}
+        <div className="form-group">  
           <label htmlFor="year">Select Year:</label>
           <select id="year" onChange={handleYearChange} value={selectedYear}>
             <option value="">Select a year</option>
@@ -168,11 +168,11 @@ const EditEvents = ({ onClose }) => {
               ))}
             </select>
           </div>
-        )} {/* select event */}
+        )} 
 
         {selectedEventId && (
           <>
-            <div className="form-group"> {/* event title */}
+            <div className="form-group"> 
               <label htmlFor="title">Event Title:</label>
               <input
                 type="text"
@@ -184,7 +184,7 @@ const EditEvents = ({ onClose }) => {
               />
             </div>
 
-            <div className="form-group"> {/* event description */}
+            <div className="form-group"> 
               <label htmlFor="description">Event Description:</label>
               <textarea
                 id="description"
@@ -195,7 +195,7 @@ const EditEvents = ({ onClose }) => {
               />
             </div>
 
-            <div className="form-group"> {/* event date */}
+            <div className="form-group"> 
               <label htmlFor="date">Event Date:</label>
               <input
                 type="date"
@@ -207,7 +207,7 @@ const EditEvents = ({ onClose }) => {
               />
             </div>
 
-            <div className="form-group"> {/* add images */}
+            <div className="form-group"> 
               <label htmlFor="images">Images:</label>
               <input
                 type="file"

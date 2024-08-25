@@ -1,12 +1,11 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { FaChevronLeft, FaChevronRight } from 'react-icons/fa'; // Import icons
+import { FaChevronLeft, FaChevronRight } from 'react-icons/fa'; 
 import './Popup.css';
 
 const Popup = ({ event, onClose }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const imageUrls = Array.isArray(event.ImageUrls) ? event.ImageUrls : [];
   
-  // Ref to access the popup content
   const popupContentRef = useRef(null);
 
   const goToPreviousImage = () => {
@@ -22,23 +21,18 @@ const Popup = ({ event, onClose }) => {
   };
 
   useEffect(() => {
-    // Handler to close the popup when pressing the Escape key
     const handleKeyDown = (event) => {
       if (event.key === 'Escape') {
         onClose();
       }
     };
-
-    // Add event listener for Escape key
     document.addEventListener('keydown', handleKeyDown);
 
     return () => {
-      // Cleanup event listener on unmount
       document.removeEventListener('keydown', handleKeyDown);
     };
   }, [onClose]);
 
-  // Close popup when clicking outside of the content
   const handleOverlayClick = (event) => {
     if (popupContentRef.current && !popupContentRef.current.contains(event.target)) {
       onClose();

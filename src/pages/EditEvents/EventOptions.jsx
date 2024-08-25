@@ -1,4 +1,3 @@
-// src/components/EventModify.js
 import React, { useState } from 'react';
 import EventButtons from '../../components/Events/EventButtons';
 import AddEvents from './AddEvents';
