@@ -3,7 +3,7 @@
     max-width: 600px;
     margin: 0 auto;
     padding: 20px;
-    background-color: #f9f9f9;
+    background-color: #386c5f;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
@@ -12,7 +12,7 @@
     font-size: 2em;
     margin-bottom: 20px;
     text-align: center;
-    color: #333;
+    color: #FFF;
 }
 
 .delete-events-form {
@@ -28,7 +28,7 @@
     display: block;
     font-size: 1.1em;
     margin-bottom: 5px;
-    color: #333;
+    color: #FFF;
 }
 
 .form-group select {
@@ -42,8 +42,8 @@
 }
 
 .delete-button {
-    background-color: #dc3545;
-    color: #fff;
+    background-color: #007bff;
+    color: #f4fced;
     border: none;
     padding: 10px 20px;
     font-size: 1.2em;
@@ -56,11 +56,13 @@
 }
 
 .delete-button:hover {
-    background-color: #c82333;
+    background-color: #0056b3;
+    color: #f4fced;
 }
 
 .delete-button:disabled {
     background-color: #cccccc;
+    color: #757575;
     cursor: not-allowed;
 }
 

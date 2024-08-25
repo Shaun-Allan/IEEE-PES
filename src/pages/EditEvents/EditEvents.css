@@ -56,8 +56,8 @@
 }
 
 .remove-button {
-  background-color: #f4fced;
-  color: #386c5f;
+  background-color: #007bff;
+  color: #f4fced;
   border: none;
   padding: 5px 10px;
   font-size: 1em;
@@ -70,8 +70,8 @@
 }
 
 .submit-button {
-  background-color: #f4fced;
-  color: #386c5f;
+  background-color: #007bff;
+  color: #f4fced;
   border: none;
   padding: 10px 20px;
   font-size: 1.2em;
@@ -84,7 +84,7 @@
 }
 
 .submit-button:hover {
-  background-color: #c0c7ba;
+  background-color: #0056b3;
 }
 
 .submit-button:disabled {
@@ -131,7 +131,7 @@
 .popup-message button {
   margin-top: 10px;
   background-color: #007bff;
-  color: white;
+  color: #f4fced;
   border: none;
   padding: 10px;
   border-radius: 4px;
@@ -146,7 +146,7 @@
 
 .spinner {
   border: 4px solid rgba(0, 0, 0, 0.1);
-  border-left: 4px solid #fff;
+  border-left: 4px solid #f4fced;
   border-radius: 50%;
   width: 24px;
   height: 24px;

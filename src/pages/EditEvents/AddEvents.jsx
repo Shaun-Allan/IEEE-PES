@@ -122,7 +122,13 @@ const EditEvents = () => {
           />
         </div>
 
-        <button type="submit" className="submit-button">Submit</button>
+        <button
+          type="submit"
+          className="submit-button"
+          disabled={!eventTitle || !eventDescription || !eventDate || images.length === 0}
+        >
+          Submit
+        </button>
       </form>
 
       {popupMessage && (
