@@ -14,11 +14,12 @@ body {
 .page-container {
   font-weight: 900;
   width: 100%;
-  height: 100%;
-  background-color: #f4fced; 
   padding: 20px;
-  position: relative;
+  background-color: #f4fced; 
   animation: fadeIn 2s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
 }
 
 @keyframes fadeIn {
@@ -30,8 +31,7 @@ body {
   text-align: center;
   font-size: 3.5rem;
   color: #414F38;
-  padding: 0%;
-  margin: 0%;
+  margin: 0;
   animation: slideInDown 1s ease;
 }
 
@@ -41,112 +41,23 @@ body {
 }
 
 .cards-container {
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
-  overflow-x: auto;
-  overflow-y: hidden;
-  padding-left: 50px;
-  padding-right: 50px;
-  padding-top: 10px;
-  padding-bottom: 20px;
-  gap: 40px;
-  background-color: #f4fced; 
-  white-space: nowrap;
-  scroll-behavior: smooth;
-}
-
-body::-webkit-scrollbar {
-  display: none;
-}
-
-.cards-container::-webkit-scrollbar {
-  display: none;
-}
-
-.card-container {
-  flex: 0 0 auto;
-  width: 400px; 
-  border-radius: 40px;
-  margin: 20px 15px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-  background-color: #ffffff;
-  transition: all 0.3s ease, box-shadow 0.3s ease;
-  animation: cardPopIn 1s ease;
-}
-
-@keyframes cardPopIn {
-  from { transform: scale(0); }
-  to { transform: scale(1); }
-}
-
-.card-container:hover {
-  transform: scale(1.07);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
-}
-
-.scroll-buttons {
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); 
   gap: 20px;
-  margin-bottom: 10px;
+  padding: 10px;
+  max-width: 1200px; 
+  width: 100%; 
+  justify-content: center; 
 }
 
-.scroll-button {
-  background-color: #00000069;
-  color: #ffffff;
-  border: none;
-  height: 40%;
-  padding: 20px;
+.loading-image {
+  text-align: center;
   font-size: 1.5rem;
-  cursor: pointer;
-  transition: all 0.1s ease;
-  visibility: hidden;
+  color: #414F38;
 }
 
-@media (hover: hover) and (pointer: fine) {
-  .cards-container:hover .scroll-button {
-    visibility: visible;
-  }
-}
-
-@media (hover: none) and (pointer: coarse) {
-  .scroll-button {
-    display: none;
-  }
-}
-
-.scroll-button.left {
-  position: absolute;
-  top: 35%;
-  left: 10px;
-  z-index: 15;
-}
-
-.scroll-button.right {
-  position: absolute;
-  top: 35%;
-  right: 10px;
-  z-index: 15;
-}
-
-@media (max-width: 640px) {
-  .cards-container {
-    flex-direction: column;
-    align-items: center;
-    padding-top: 20px;
-  }
-
-  .card-container {
-    width: 110%;
-    margin-bottom: 20px;
-  }
-
-  .card-container:hover {
-    transform: scale(1);
-  }
-
-  .scroll-buttons {
-    display: none; 
+@media (max-width: 768px) {
+  .events-title {
+    font-size: 2.5rem;
   }
 }

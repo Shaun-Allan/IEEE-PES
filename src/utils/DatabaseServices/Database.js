@@ -17,8 +17,7 @@ export const fetchEvents = async () => {
 
       allEvents = allEvents.concat(yearWiseEvents);
     }
-
-    allEvents.sort((a, b) => b.eventNo - a.eventNo); // Sort in descending order by eventNo
+    allEvents.sort((a, b) => new Date(b.eventDate) - new Date(a.eventDate)); 
 
     return allEvents;
   } catch (err) {

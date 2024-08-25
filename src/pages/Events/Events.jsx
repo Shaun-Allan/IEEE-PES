@@ -1,12 +1,10 @@
-
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Events.css';
 import EventCard from '../../components/Events/EventCard';
-import { fetchEvents } from '../../utils/DatabaseServices/Database'; 
+import { fetchEvents } from '../../utils/DatabaseServices/Database';
 
 const Events = () => {
   const [events, setEvents] = useState([]);
-  const containerRef = useRef(null); 
 
   useEffect(() => {
     const loadEvents = async () => {
@@ -17,33 +15,15 @@ const Events = () => {
     loadEvents();
   }, []);
 
-  const scrollLeft = () => {
-    if (containerRef.current) {
-      containerRef.current.scrollBy({ left: -300, behavior: 'smooth' }); 
-    }
-  };
-
-  const scrollRight = () => {
-    if (containerRef.current) {
-      containerRef.current.scrollBy({ left: 300, behavior: 'smooth' }); 
-    }
-  };
-
   return (
     <div className="page-container">
       <h1 className='events-title'>Events</h1>
-      <div className="cards-container" ref={containerRef}>
-        <div className="scroll-buttons">
-          <button className="scroll-button left" onClick={scrollLeft}>❮</button>
-          <button className="scroll-button right" onClick={scrollRight}>❯</button>
-        </div>
+      <div className="cards-container">
         {events.length === 0 ? (
-          <div className="loading-image"></div>
+          <div className="loading-image">Loading...</div>
         ) : (
           events.map((event) => (
-            <div className="card-container" key={event.id}>
-              <EventCard event={event} />
-            </div>
+            <EventCard key={event.id} event={event} />
           ))
         )}
       </div>
