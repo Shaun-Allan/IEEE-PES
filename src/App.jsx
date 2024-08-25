@@ -48,10 +48,10 @@ const router = createBrowserRouter([
         path: "events",
         element: <EventModify />, // EditEvents page
       },
-      {
-        path: "team",
-        element: <EditTeam />, // EditEvents page
-      },
+      // {
+      //   path: "team",
+      //   element: <EditTeam />, // EditEvents page
+      // },
     ],
   },
   {
