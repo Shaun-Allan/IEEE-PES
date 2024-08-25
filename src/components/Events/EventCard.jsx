@@ -6,7 +6,7 @@ const EventCard = ({ event }) => {
 
   return (
     <div className="event-card">
-      {imageUrls.length > 0 && (
+      {(
         <div className="event-image-container">
           <img
             alt={`Event ${event.Name} Image`}
