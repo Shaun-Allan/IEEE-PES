@@ -1,3 +1,4 @@
+/* Overlay with fade-in animation */
 .popup-overlay {
   position: fixed;
   top: 0;
@@ -9,6 +10,8 @@
   align-items: center;
   justify-content: center;
   z-index: 1000;
+  opacity: 0;
+  animation: fadeIn 0.3s forwards; /* Animation for showing */
 }
 
 .popup-content {
@@ -21,6 +24,9 @@
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   overflow: auto;
   max-height: 90vh;
+  transform: translateY(-20px); /* Start slightly above */
+  opacity: 0;
+  animation: slideIn 0.3s forwards; /* Animation for showing */
 }
 
 .popup-content::-webkit-scrollbar {
@@ -31,35 +37,35 @@
   position: absolute;
   top: 10px;
   right: 10px;
-  background: #414F38; 
+  background: #414F38;
   border: none;
-  border-radius: 50%; 
-  width: 36px; 
-  height: 36px; 
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 24px;
   cursor: pointer;
-  color: #fff; 
+  color: #fff;
   transition: background 0.3s, color 0.3s, transform 0.3s;
 }
 
 .popup-close:hover {
-  background: #386c5f; 
-  color: #fff; 
-  transform: scale(1.1); 
+  background: #386c5f;
+  color: #fff;
+  transform: scale(1.1);
 }
 
 .popup-close:active {
-  background: #386c5f; 
+  background: #386c5f;
 }
 
 .popup-title {
   margin-top: 0;
   font-size: 1.5rem;
   color: #414F38;
-  padding-right: 50px; 
+  padding-right: 50px;
 }
 
 .popup-image-container {
@@ -81,13 +87,13 @@
 .popup-arrow-left,
 .popup-arrow-right {
   position: absolute;
-  height: 40px; 
-  width: 40px; 
+  height: 40px;
+  width: 40px;
   top: 50%;
   background: rgba(0, 0, 0, 0.5);
   color: #fff;
   border: none;
-  font-size: 24px; 
+  font-size: 24px;
   cursor: pointer;
   border-radius: 50%;
   transform: translateY(-50%);
@@ -121,6 +127,29 @@
 
 @media (max-width: 550px) {
   .popup-description {
-    font-size: 0.7rem;
+    font-size: 90%;
   }
 }
+
+/* Keyframe animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* For closing the popup, use animation classes dynamically with JavaScript */
