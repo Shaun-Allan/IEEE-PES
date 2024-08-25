@@ -1,0 +1,21 @@
+.event-buttons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.event-button {
+  background-color: #007bff ;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 0 10px;
+  transition: background-color 0.3s ease;
+}
+
+.event-button:hover {
+  background-color: #0056b3;
+}

@@ -1,70 +1,26 @@
-import React, { useState } from "react";
-import { Card, CardBody, CardHeader, Image } from "@nextui-org/react";
-import "./EventCard.css";
+import React from 'react';
+import './EventCard.css';
 
-export default function EventCard({ event }) {
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const [showDescription, setShowDescription] = useState(false);
-
-  const nextSlide = (e) => {
-    e.stopPropagation();
-    const nextIndex = (currentSlide + 1) % event.images.length;
-    setCurrentSlide(nextIndex);
-  };
-
-  const prevSlide = (e) => {
-    e.stopPropagation();
-    const prevIndex =
-      (currentSlide - 1 + event.images.length) % event.images.length;
-    setCurrentSlide(prevIndex);
-  };
-
-  const toggleDescription = () => {
-    setShowDescription(!showDescription);
-  };
+const EventCard = ({ event, onOpenPopup }) => {
+  const imageUrls = Array.isArray(event.ImageUrls) ? event.ImageUrls : [];
 
   return (
-    <Card className="event-card">
-      <CardBody className="p-0 relative overflow-hidden">
-        <div className="slider-container" onClick={toggleDescription}>
-          <div className="image-container">
-            {event.images.length > 1 && !showDescription && (
-              <>
-                <button className="prev" onClick={prevSlide}>
-                  &#10094;
-                </button>
-                <button className="next" onClick={nextSlide}>
-                  &#10095;
-                </button>
-              </>
-            )}
-            <div className="slides">
-              {event.images.map((image, idx) => (
-                idx === currentSlide && (
-                  <Image
-                    key={idx}
-                    alt={`Event ${event.name} Image ${idx + 1}`}
-                    className="object-cover"
-                    src={image.url}
-                  />
-                )
-              ))}
-            </div>
-            {!showDescription && (
-              <div className="click-to-know-more">
-                Click to know more
-              </div>
-            )}
-          </div>
-          {showDescription && (
-            <div className="description-container">
-              <h4 className="event-title">{event.name}</h4>
-              <p className="event-date">{event.date}</p>
-              <p className="event-description">{event.description}</p>
-            </div>
-          )}
-        </div>  
-      </CardBody>
-    </Card>
+    <div className="event-card" onClick={() => onOpenPopup(event)}>
+      <div className="event-image-container" onClick={() => onOpenPopup(event)}>
+        <img
+          alt={`Event ${event.Name} Image`}
+          src={imageUrls[0]} 
+          className="event-image"
+        />
+      </div>
+      <div className="content-container">
+        <h4 className="event-title">{event.Name}</h4>
+        <button className="know-more-button" onClick={() => onOpenPopup(event)}>
+          Know More
+        </button>
+      </div>
+    </div>
   );
-}
+};
+
+export default EventCard;

@@ -1,28 +1,25 @@
 import { collection, getDocs } from 'firebase/firestore';
-import { db } from './FirebaseConfig';
+import { db } from '../firebase/firebase';
 
 export const fetchEvents = async () => {
   try {
-    const eventsCollection = collection(db, 'events');
-    const eventSnapshot = await getDocs(eventsCollection);
+    const startYear = 2022;
+    const currentYear = new Date().getFullYear();
+    let allEvents = [];
 
-    const eventsList = await Promise.all(
-      eventSnapshot.docs.map(async (doc) => {
-        const eventData = doc.data();
-        const imagesCollection = collection(doc.ref, 'images');
-        const imagesSnapshot = await getDocs(imagesCollection);
+    for (let year = startYear; year <= currentYear; year++) {
+      const eventsCollection = collection(db, 'Events', 'Year', year.toString());
+      const eventSnapshot = await getDocs(eventsCollection);
+      const yearWiseEvents = eventSnapshot.docs.map(doc => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
 
-        const images = imagesSnapshot.docs
-          .map(imgDoc => imgDoc.data())
-          .sort((a, b) => a.imageNo - b.imageNo);
+      allEvents = allEvents.concat(yearWiseEvents);
+    }
+    allEvents.sort((a, b) => new Date(b.eventDate) - new Date(a.eventDate)); 
 
-        return { id: doc.id, ...eventData, images };
-      })
-    );
-
-    eventsList.sort((a, b) => a.eventNo - b.eventNo).reverse();
-
-    return eventsList;
+    return allEvents;
   } catch (err) {
     console.error('Error fetching events:', err);
     throw new Error('Failed to load events.');

@@ -1,11 +1,12 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Events.css';
 import EventCard from '../../components/Events/EventCard';
-import { fetchEvents } from '../../utils/DatabaseServices/Database'; 
+import Popup from '../../components/Events/Popup'; 
+import { fetchEvents } from '../../utils/DatabaseServices/Database';
 
 const Events = () => {
   const [events, setEvents] = useState([]);
-  const containerRef = useRef(null); 
+  const [selectedEvent, setSelectedEvent] = useState(null);
 
   useEffect(() => {
     const loadEvents = async () => {
@@ -16,17 +17,39 @@ const Events = () => {
     loadEvents();
   }, []);
 
-  const scrollLeft = () => {
-    if (containerRef.current) {
-      containerRef.current.scrollBy({ left: -300, behavior: 'smooth' }); 
-    }
+  const handleOpenPopup = (event) => {
+    setSelectedEvent(event);
   };
 
-  const scrollRight = () => {
-    if (containerRef.current) {
-      containerRef.current.scrollBy({ left: 300, behavior: 'smooth' }); 
-    }
+  const handleClosePopup = () => {
+    setSelectedEvent(null);
   };
 
+  return (
+    <div className="page-container">
+      <h1 className='events-title'>Events</h1>
+      <div className="cards-container">
+        {events.length === 0 ? (
+          <div className="loading-image">Loading...</div>
+        ) : (
+          events.map((event) => (
+            <EventCard 
+              key={event.id} 
+              event={event} 
+              onOpenPopup={handleOpenPopup} 
+            />
+          ))
+        )}
+      </div>
 
-export default Events
+      {selectedEvent && (
+        <Popup 
+          event={selectedEvent} 
+          onClose={handleClosePopup} 
+        />
+      )}
+    </div>
+  );
+};
+
+export default Events;
