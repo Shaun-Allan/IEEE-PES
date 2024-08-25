@@ -6,15 +6,13 @@ const EventCard = ({ event }) => {
 
   return (
     <div className="event-card">
-      {(
-        <div className="event-image-container">
-          <img
-            alt={`Event ${event.Name} Image`}
-            src={imageUrls[0]} 
-            className="event-image"
-          />
-        </div>
-      )}
+      <div className="event-image-container">
+        <img
+          alt={`Event ${event.Name} Image`}
+          src={imageUrls[0]} 
+          className="event-image"
+        />
+      </div>
       <div className="content-container">
         <h4 className="event-title">{event.Name}</h4>
         <button className="know-more-button">Know More</button>

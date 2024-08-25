@@ -43,7 +43,8 @@ body {
 .cards-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); 
-  gap: 20px;
+  grid-row-gap: 40px;
+  grid-column-gap: 20px;
   padding: 10px;
   max-width: 1200px; 
   width: 100%; 

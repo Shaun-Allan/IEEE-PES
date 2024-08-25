@@ -61,7 +61,7 @@
 }
 
 .know-more-button {
-  background-color: #5ea13c;
+  background-color: #386c5f;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -72,5 +72,5 @@
 }
 
 .know-more-button:hover {
-  background-color: #4a8c2a;
+  background-color: #386c5f;
 }
