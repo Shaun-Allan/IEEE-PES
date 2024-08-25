@@ -7,10 +7,8 @@ import AdminLayout from "./components/AdminLayout/AdminLayout";
 import Team from "./pages/Team/Team";
 import Events from "./pages/Events/Events";
 import Contact from "./pages/Contact/Contact";
-import Admin from "./pages/Admin/Admin";
+import Admin from "./pages/Admin/Admin"
 import EventModify from "./pages/EditEvents/EventOptions";
-import EditTeam from "./pages/EditTeam/EditTeam";
-
 const router = createBrowserRouter([
   {
     path: "/",
