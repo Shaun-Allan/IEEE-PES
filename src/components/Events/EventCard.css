@@ -69,8 +69,10 @@
   border-radius: 4px;
   margin-top: 12px; 
   align-self: center;
+  transition: all 0.1s ease;
 }
 
 .know-more-button:hover {
+  transform: scale(1.1);
   background-color: #386c5f;
 }
